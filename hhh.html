@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Collage Nike</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
+        grid-template-rows: 1fr 1fr; /* 2 hàng bằng nhau */
+        gap: 0; /* bỏ khoảng cách */
+        width: 100vw; /* full chiều ngang */
+        height: 100vh; /* full chiều cao */
+      }
+      .grid-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* ảnh lấp đầy ô */
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <figure style="position: relative; inline-block;">
+        <img
+          src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_402,c_limit/5ddc820a-3370-485c-8089-256ffc4ca1f9/nike-just-do-it.png"
+          alt=""
+        />
+        <figcaption
+          style="
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            font-size: 18px;
+            color: white;
+          "
+        >
+          <div class="content-on-pictures">
+            <p>ACG Ultrafly Trail</p>
+            <h3>Dutch Green</h3>
+          </div>
+          <div class="shop-button">
+            <a href="">Shop</a>
+          </div>
+        </figcaption>
+      </figure>
+      <figure style="position: relative; inline-block;">
+        <img
+          src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_402,c_limit/d86a31d2-2d06-49fb-b2fa-3786f958ba77/nike-just-do-it.png; sizes:table-layout"
+          alt=""
+        />
+        <figcaption
+          style="
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            font-size: 18px;
+            color: white;
+          "
+        >
+          <div class="content-on-pictures">
+            <p>Reimagined Air</p>
+            <h3>Air Max Muse</h3>
+          </div>
+          <div class="shop-button">
+            <a href="">Shop</a>
+          </div>
+        </figcaption>
+      </figure>
+      <figure style="position: relative; inline-block;">
+        <img
+          src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_422,c_limit/5b945286-82de-42b8-9759-1c1fa2d41885/nike-just-do-it.png"
+          alt=""
+        />
+        <figcaption
+          style="
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            font-size: 18px;
+            color: white;
+          "
+        >
+          <div class="content-on-pictures">
+            <p>Nike Pro Seamless</p>
+            <h3>Effortlessly Sculpted</h3>
+          </div>
+          <div class="shop-button">
+            <a href="">Shop</a>
+          </div>
+        </figcaption>
+      </figure>
+      <figure style="position: relative; inline-block;">
+        <img
+          src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_398,c_limit/06475d21-3d38-4ce8-8a11-08833d38c3f7/nike-just-do-it.png"
+          alt=""
+        />
+        <figcaption
+          style="
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            font-size: 18px;
+            color: white;
+          "
+        >
+          <div class="content-on-pictures">
+            <p>Air Jordan Shōten Pack</p>
+            <h3>An AJ pack stitched with history</h3>
+          </div>
+          <div class="shop-button">
+            <a href="">Shop</a>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+    <br>
+<style>
+  .slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 400px;
+  }
+  .product {
+    flex: 0 0 400px;
+    scroll-snap-align: start;
+    text-align: center;
+    padding: 20px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+</style>
+
+<div class="slider">
+  <div id="p1" class="product">Sản phẩm 1</div>
+  <div id="p2" class="product">Sản phẩm 2</div>
+  <div id="p3" class="product">Sản phẩm 3</div>
+</div>
+
+<div class="controls">
+  <a href="#p1">1</a>
+  <a href="#p2">2</a>
+  <a href="#p3">3</a>
+</div>
+  </body>
+</html>
