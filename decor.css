@@ -53,7 +53,11 @@
   cursor: pointer; /* hiện bàn tay khi hover */
   transition: all 0.3s ease; /* hiệu ứng hover */
 }
-
+.shop-button a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
 .shop-button:hover {
   background-color: #cacacb; /* nền đen khi hover */
   color: white; /* chữ trắng khi hover */
