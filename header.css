@@ -1,0 +1,76 @@
+*{
+  font-family: Open Sans, sans-serif;
+}
+
+#logo img{  
+  max-width: 100px;    /*chiều rộng tối đa*/
+  height: auto;
+  padding: 10px 30px; /* padding: bottom/top left/right */ 
+}
+
+.header{
+  background-color:rgb(184, 184, 184) ;
+  margin: -8px; /* khoảng cách giữa viền và các phần tử khác */
+}
+
+.container{
+  max-width: 1100px;
+  margin: auto;
+  display: flex; /* sắp xếp các phần tử xếp thành một hàng ngang */
+  justify-content: space-between; /* Các phần tử cách đều nhau , không có khoảng trống ở hai đầu */
+}
+
+#menu-chinh{
+  display: flex;
+  list-style: none; /*Xóa dấu chấm của danh sách ul */
+  margin: 0;
+  padding: 0;
+}
+
+#menu-chinh li {
+  position:relative;
+}
+
+#menu-chinh li a{
+  color: #000000;
+  display: block; /* cho phép chỉnh kích thước, giúp click dễ hơn, dễ layout hơn */
+  padding: 23px 40px;
+  text-decoration: none; /* xóa dấu gạch chéo ở link */
+}
+
+#menu-chinh li a:hover{ /*tạo hiệu ứng khi di chuột qua */
+  color:rgb(105, 74, 74);
+}
+
+#menu-chinh ul.sub-menu{
+  position:absolute; /*đặt submeu ở vtri tự do, bám theo thẻ cha có position: relative, nhờ vậy submenu sẽ xổ xuống đúng vtri menu cha */
+  background-color:rgb(254, 255, 245) ;
+  padding: 15px 0px;
+  list-style: none;
+  width: auto;
+  border: 1px solid rgb(163, 163, 158);
+  display:none; /*ẩn submenu đi */
+  left: 0px; 
+  top: 100%;
+}
+
+#menu-chinh li:hover> ul.sub-menu{ /*khi di chuột vào sẽ có hiệu ứng hover submenu sẽ hiện ra , để tránh lỗi khi có menu nhièu cấp thì cần phải có ">"*/
+  display:block; 
+}
+
+#menu-chinh ul.sub-menu :hover{
+  background-color: #dad8d8;
+  color:#411111;
+}
+
+#menu-chinh ul.sub-menu a{
+  padding: 10px 20px;
+  left: 0;
+}
+.icon i{
+  display: flex;
+  align-items: center;
+  size: 500px;
+}
+
+
