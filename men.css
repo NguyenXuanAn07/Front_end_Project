@@ -1,0 +1,32 @@
+
+.first-slider-of-men{
+  display: flex; /*sắp xếp phần tử theo hàng ngang */
+  overflow-x: auto; /*kéo dài list sản phần nếu sản phẩm đủ nhiều hơn độ dài box */
+  scroll-behavior: smooth; /*kéo thanh sp mượt mà, ko bị giật; */
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  gap: 20px;
+}
+.shop-button {
+  display: inline-block;
+  padding: 10px 30px; /* khoảng cách trong nút */
+  background-color: black; /* nền trắng */
+  
+  border: 2px solid black; /* viền đen */
+  border-radius: 50px; /* bo tròn oval */
+  font-size: 1.5vw;
+  font-weight: bold;
+  
+  text-align: center;
+  cursor: pointer; /* hiện bàn tay khi hover */
+  transition: all 0.3s ease; /* hiệu ứng hover */
+}
+.shop-button:hover {
+  background-color: #cacacb; /* nền đen khi hover */
+  color: white; /* chữ trắng khi hover */
+}
+.shop-button a{
+    color: white; /* chữ trăng */
+    text-decoration: none; /* bỏ gạch chân */
+}
