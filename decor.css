@@ -53,7 +53,11 @@
   cursor: pointer; /* hiện bàn tay khi hover */
   transition: all 0.3s ease; /* hiệu ứng hover */
 }
-
+.shop-button a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
 .shop-button:hover {
   background-color: #cacacb; /* nền đen khi hover */
   color: white; /* chữ trắng khi hover */
@@ -89,7 +93,11 @@
 }
 .type-of-slider-product{
     text-decoration: none;
-    color: gray;
+    color: black;
+}
+.slider a {
+  text-decoration: none;
+  color: black;
 }
 .second-slider{
     display: flex;
@@ -100,11 +108,18 @@
     padding: 10px;
     gap: 20px;
 }
+.second-slider a{
+  text-decoration: none;
+}
 .type-of-second-slider-product{
     flex: 0 0 90px;
     text-align: center;
     padding: 20px;
     scroll-snap-align: start;
+}
+.type-of-second-slider-product a {
+  text-decoration: none;
+
 }
 .second-slider a h2{
     text-decoration: none;

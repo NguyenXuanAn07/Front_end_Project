@@ -1,0 +1,112 @@
+/* decor cho slider đầu tiên */
+  .first-slider-of-men {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+    gap: 20px;
+  }
+
+.types-of-first-slider-of-men {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 300px; /* hoặc điều chỉnh theo ý */
+}
+.types-of-first-slider-of-men a{
+  text-decoration: none;
+}
+#img-scroll-of-men{
+  width: 300px;
+  height: 300px;
+}
+.content-on-pictures{
+  color: black;
+}
+.shop-button {
+  display: inline-block;
+  padding: 10px 30px; /* khoảng cách trong nút */
+  background-color: black; /* nền trắng */
+  
+  border: 2px solid black; /* viền đen */
+  border-radius: 50px; /* bo tròn oval */
+  font-size: 1.5vw;
+  font-weight: bold;
+  
+  text-align: center;
+  cursor: pointer; /* hiện bàn tay khi hover */
+  transition: all 0.3s ease; /* hiệu ứng hover */
+}
+.shop-button:hover {
+  background-color: #cacacb; /* nền đen khi hover */
+  color: white; /* chữ trắng khi hover */
+}
+.shop-button a{
+    color: white; /* chữ trăng */
+    text-decoration: none; /* bỏ gạch chân */
+}
+
+/* decor slider thứ 2 */
+.second-slider-of-men{
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  gap: 5px;
+}
+.second-slider-item {
+  position: relative;
+  flex: 0 0 auto;          /* giữ kích thước cố định khi scroll */
+  scroll-snap-align: start;
+  width: 400px;            /* bạn có thể chỉnh theo ý */
+}
+.second-slider-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.second-slider-item figcaption {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+.second-shop-button{
+  display: inline-block;
+  padding: 6px 15px; /* khoảng cách trong nút */
+  background-color: white; /* nền trắng */
+  color: black; /* chữ đen */
+  border: 2px solid white; /* viền đen */
+  border-radius: 50px; /* bo tròn oval */
+  font-size: 1vw;
+  font-weight: bold;
+  text-decoration: none; /* bỏ gạch chân */
+  text-align: center;
+  cursor: pointer; /* hiện bàn tay khi hover */
+  transition: all 0.3s ease; /* hiệu ứng hover */ 
+}
+.second-shop-button a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold
+}
+.second-shop-button:hover {
+  background-color: #cacacb;
+  color: white;
+}
+
+/* Footer */
+.spotlight{
+  text-align: center;
+  font-weight: 800;
+  font-size: 40px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.text-under-spotlight p{
+  text-align: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 200px;
+}
+
