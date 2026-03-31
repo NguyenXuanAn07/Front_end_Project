@@ -1,3 +1,7 @@
+div{
+  display: block;
+}
+/* Div đầu */
 .grid-container {
   position: relative;
   display: grid;
@@ -36,13 +40,62 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
-  background-color: black; /* nền trắng */
+  background-color: transparent; /*thay đổi nền khi hover theo thẻ cha */
 }
 .shop-button:hover {
   background-color: #cacacb; /* nền đen khi hover */
   color: white; /* chữ trắng khi hover */
 }
-.shop-button a:hover{
-  background-color: #cacacb; /* nền đen khi hover */
-  color: white; /* chữ trắng khi hover */
+
+/* Div sau */
+.first-slider-of-women {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  gap: 20px;
+}
+
+.types-of-first-slider-of-women {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 300px; /* hoặc điều chỉnh theo ý */
+}
+.types-of-first-slider-of-women a{
+  text-decoration: none;
+}
+#img-scroll-of-women{
+  width: 300px;
+  height: 300px;
+}
+.content-on-pictures2{
+  color: black;
+}
+/* Slider 2 */
+.second-slider-of-women {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  gap: 20px;
+}
+
+.types-of-second-slider-of-women {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 300px; /* hoặc điều chỉnh theo ý */
+}
+.types-of-second-slider-of-women a{
+  text-decoration: none;
+}
+#img-scroll-of-women2{
+  width: 300px;
+  height: 300px;
+}
+.content-on-pictures22{
+  color: black;
 }
