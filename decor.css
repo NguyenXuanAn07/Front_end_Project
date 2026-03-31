@@ -27,7 +27,7 @@
   grid-template-rows: 1fr 1fr; /* 2 hàng bằng nhau */
   gap: 0; /* bỏ khoảng cách */
   width: 100vw; /* full chiều ngang */
-  height: 100%; /* chiều cao co giãn theo nội dung */
+  height: 100vw; /* chiều cao co giãn theo nội dung */
   z-index: 1;
 }
 .grid-container img {

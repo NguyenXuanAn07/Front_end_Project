@@ -1,0 +1,48 @@
+.grid-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
+  grid-template-rows: 1fr 1fr; /* 2 hàng bằng nhau */
+  gap: 0; /* bỏ khoảng cách */
+  width: 100vw; /* full chiều ngang */
+  height: 100vw; /* chiều cao co giãn theo nội dung */
+  z-index: 1;
+}
+.grid-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ảnh lấp đầy ô */
+  display: block;
+}
+.content-on-pictures p, .content-on-pictures h3 {
+  font-size: 2vw; /* chữ co giãn theo chiều rộng màn hình */
+  color: white;
+}
+.shop-button {
+  display: inline-block;
+  padding: 10px 30px; /* khoảng cách trong nút */
+  background-color: white; /* nền trắng */
+  color: black; /* chữ đen */
+  border: 2px solid white;
+  border-radius: 50px; /* bo tròn oval */
+  font-size: 1.5vw;
+  font-weight: bold;
+  text-decoration: none; /* bỏ gạch chân */
+  text-align: center;
+  cursor: pointer; /* hiện bàn tay khi hover */
+  transition: all 0.3s ease; /* hiệu ứng hover */
+}
+.shop-button a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  background-color: black; /* nền trắng */
+}
+.shop-button:hover {
+  background-color: #cacacb; /* nền đen khi hover */
+  color: white; /* chữ trắng khi hover */
+}
+.shop-button a:hover{
+  background-color: #cacacb; /* nền đen khi hover */
+  color: white; /* chữ trắng khi hover */
+}
