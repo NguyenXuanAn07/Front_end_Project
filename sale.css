@@ -1,0 +1,56 @@
+/* Thanh slider */
+.left-slider{
+    height: 620px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    width: 150px;
+    scroll-snap-type: y mandatory;
+    padding: 15px;
+    gap: 10px;
+    position: fixed;
+    margin-top: 10px;
+    z-index: 1000;
+}
+.left-slider li{
+    list-style: none;
+}
+.left-slider li :hover{
+    cursor: pointer;
+}
+.left-slider li a{
+    text-decoration: none;
+    color: black;
+    display: block; 
+    padding: 8px 12px;
+}
+ /* Cách menu của elements trong slider, ĐỂ TẠM CSS, SẼ BỔ SUNG JS SAU */ 
+.menu-of-list-slider .show{
+    display: block;
+}
+.menu-toggle:hover + .menu-of-list-slider{
+    display: block;
+}
+.menu-of-list-slider {
+  display: none; /* Ẩn mặc định */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.group-menu:hover .menu-of-list-slider {
+  display: block; /* submenu vẫn hiện khi di chuột vào chính nó */
+}
+
+
+/* Khoảng cách các items trong slider */
+.left-slider .menu{
+    margin: 4px;
+}
+.left-slider .menu-toggle {
+    margin: 12px;
+}
+/* Button */
+.menu-of-list-slider button{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
