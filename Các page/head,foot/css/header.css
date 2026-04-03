@@ -1,0 +1,235 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+background-color: #fff;
+color: #111;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+ul {
+list-style: none;
+}
+
+/* --- Top Header (Jordan Bar) --- */
+.top-header {
+background-color: #f5f5f5;
+height: 36px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 48px;
+font-size: 12px;
+font-weight: 500;
+}
+
+.top-header .jordan-logo img {
+width: 50px;
+height: 50px;
+}
+
+.top-nav-links {
+display: flex;
+gap: 12px;
+}
+
+.top-nav-links span {
+color: #ccc;
+}
+
+.top-nav-links a:hover {
+color: #7e7e7e;
+}
+
+/* --- Main Header --- */
+.main-header {
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 48px;
+position: sticky;
+top: 0;
+background: white;
+z-index: 1000;
+}
+
+.nike-logo img {
+width: 60px;
+height: 22px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+display: flex;
+height: 100%;
+}
+
+.nav-item {
+display: flex;
+align-items: center;
+padding: 0 12px;
+font-weight: 500;
+font-size: 16px;
+cursor: pointer;
+border-bottom: 2px solid transparent;
+white-space: nowrap;
+/* Quan trọng: không đặt position: relative ở đây để mega-menu căn theo main-header full width */
+position: static; 
+}
+
+.nav-item:hover {
+border-bottom: 2px solid #111;
+}
+
+/* --- Mega Menu (The Dropdown) --- */
+.mega-menu {
+position: absolute; /* Đổi sang absolute để bám theo header */
+top: 100%; /* Luôn nằm ngay dưới đáy header */
+left: 0;
+width: 100%;
+background: white;
+padding: 40px 10% 60px 10%; /* Giảm padding hai bên để rộng hơn */
+display: none;
+
+/* Dùng grid nhưng cho phép tự động dàn hàng ngang */
+display: none; 
+grid-auto-flow: column; /* Luôn thêm cột mới sang bên phải */
+grid-auto-columns: 1fr;  /* Các cột có độ rộng bằng nhau */
+gap: 20px;
+
+box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+z-index: 999;
+}
+
+.nav-item:hover .mega-menu {
+display: grid;
+}
+
+.mega-column h4 {
+font-size: 16px;
+margin-bottom: 16px;
+font-weight: 500;
+}
+
+.mega-column ul li {
+font-size: 14px;
+color: #7e7e7e;
+margin-bottom: 8px;
+}
+
+.mega-column ul li:hover {
+color: #111;
+}
+
+/* --- Search & Icons --- */
+.header-right {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.search-container {
+background: #f5f5f5;
+display: flex;
+align-items: center;
+padding: 8px 12px;
+border-radius: 100px;
+width: 180px;
+transition: width 0.3s;
+}
+
+.search-container:hover {
+background: #e5e5e5;
+}
+
+.search-container input {
+background: transparent;
+border: none;
+outline: none;
+margin-left: 8px;
+font-size: 14px;
+width: 100%;
+}
+
+.icon-btn {
+font-size: 20px;
+cursor: pointer;
+transition: opacity 0.2s;
+}
+
+.icon-btn:hover {
+opacity: 0.6;
+}
+
+/* --- Hero / Content Section --- */
+.hero {
+width: 100%;
+height: 600px;
+background-color: #eee;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 40px;
+}
+
+.hero h1 {
+font-size: 72px;
+font-weight: 900;
+letter-spacing: -2px;
+text-transform: uppercase;
+}
+
+.hero p {
+margin: 20px 0;
+max-width: 500px;
+}
+
+.btn-black {
+background: #111;
+color: white;
+padding: 8px 24px;
+border-radius: 100px;
+font-weight: 500;
+transition: background 0.3s;
+}
+
+.btn-black:hover {
+background: #444;
+}
+
+/* Footer Basic */
+footer {
+background: #111;
+color: white;
+padding: 60px 48px;
+display: grid;
+grid-template-columns: repeat(4, 1fr) 1.5fr;
+gap: 40px;
+}
+
+.footer-col h4 {
+font-size: 14px;
+margin-bottom: 20px;
+text-transform: uppercase;
+}
+
+.footer-col ul li {
+font-size: 12px;
+color: #7e7e7e;
+margin-bottom: 12px;
+}
+
+.footer-col ul li:hover {
+color: white;
+}

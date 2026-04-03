@@ -1,0 +1,142 @@
+.promo-banner span,
+.promo-banner a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #f5f5f5;
+}
+.promo-banner a {
+  font-weight: bold;
+}
+
+.list-products {
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  size: 20px;
+}
+#banner2 {
+  background-color: #ffffff;
+}
+/* Làm ảnh lấp đầy table */
+.grid-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
+  grid-template-rows: 1fr 1fr; /* 2 hàng bằng nhau */
+  gap: 0; /* bỏ khoảng cách */
+  width: 100vw; /* full chiều ngang */
+  height: 100vw; /* chiều cao co giãn theo nội dung */
+  z-index: 1;
+}
+.grid-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ảnh lấp đầy ô */
+  display: block;
+}
+.content-on-pictures {
+  font-size: 2vw; /* chữ co giãn theo chiều rộng màn hình */
+}
+.shop-button {
+  display: inline-block;
+  padding: 10px 30px; /* khoảng cách trong nút */
+  background-color: white; /* nền trắng */
+  color: black; /* chữ đen */
+  border: 2px solid black; /* viền đen */
+  border-radius: 50px; /* bo tròn oval */
+  font-size: 1.5vw;
+  font-weight: bold;
+  text-decoration: none; /* bỏ gạch chân */
+  text-align: center;
+  cursor: pointer; /* hiện bàn tay khi hover */
+  transition: all 0.3s ease; /* hiệu ứng hover */
+}
+.shop-button a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.shop-button:hover {
+  background-color: #cacacb; /* nền đen khi hover */
+  color: white; /* chữ trắng khi hover */
+}
+.slider {
+  display: flex; /*sắp xếp phần tử theo hàng ngang */
+  overflow-x: auto; /*kéo dài list sản phần nếu sản phẩm đủ nhiều hơn độ dài box */
+  scroll-behavior: smooth; /*kéo thanh sp mượt mà, ko bị giật; */
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  gap: 20px;
+}
+.green-products {
+  flex: 0 0 100px; /*mỗi sản phẩm chiếm đúng 300px, ko co giãn */
+  text-align: center; /*căn nội dung vào giữa */
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: #ccc;
+  scroll-snap-align: start;
+}
+.controls-of-green-products {
+  margin-top: 20px;
+  text-align: center;
+}
+#img-scroll {
+  width: 300px;
+  height: 300px;
+}
+.name-of-slider-product{
+    text-decoration: none;
+    color: black;
+}
+.type-of-slider-product{
+    text-decoration: none;
+    color: black;
+}
+.slider a {
+  text-decoration: none;
+  color: black;
+}
+.second-slider{
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+    gap: 20px;
+}
+.second-slider a{
+  text-decoration: none;
+}
+.type-of-second-slider-product{
+    flex: 0 0 90px;
+    text-align: center;
+    padding: 20px;
+    scroll-snap-align: start;
+}
+.type-of-second-slider-product a {
+  text-decoration: none;
+
+}
+.second-slider a h2{
+    text-decoration: none;
+    color: black;
+}
+#img-scroll2{
+    height: 200px;
+    width: 200px;
+}
+.spotlight{
+  text-align: center;
+  font-weight: 800;
+  font-size: 40px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.text-under-spotlight p{
+  text-align: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 200px;
+}

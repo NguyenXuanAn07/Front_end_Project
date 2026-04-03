@@ -1,0 +1,233 @@
+/* --- SIGN IN PAGE STYLES --- */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.signin-view {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.signin-logos {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.signin-logos img {
+    height: 24px;
+}
+
+.signin-view h1 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.location-info {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.location-info .change-link {
+    color: #7e7e7e;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 18px;
+    font-size: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #111;
+}
+
+.legal-text {
+    font-size: 14px;
+    color: #7e7e7e;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.legal-text a {
+    text-decoration: underline;
+}
+
+.signin-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-continue {
+    background: #111;
+    color: #fff !important;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none !important; /* Xóa gạch chân */
+}
+
+.btn-continue a {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.btn-continue:hover {
+    background: #444;
+}
+
+.form-view {
+    max-width: 500px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+}
+
+.form-logos {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.form-logos img {
+    height: 24px;
+}
+
+.form-view h1 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.edit-link {
+    text-decoration: underline;
+    color: #7e7e7e;
+    margin-left: 5px;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-wrapper input, .input-wrapper select {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    outline: none;
+    appearance: none;
+}
+
+.input-wrapper input:focus, .input-wrapper select:focus {
+    border-color: #111;
+}
+
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7e7e7e;
+    cursor: pointer;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.requirements {
+    font-size: 12px;
+    color: #7e7e7e;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.requirements li {
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dob-label {
+    font-size: 14px;
+    color: #7e7e7e;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #111;
+    line-height: 1.4;
+    align-items: flex-start;
+}
+
+.checkbox-group input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.checkbox-group a {
+    text-decoration: underline;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.btn-black {
+    background: #111;
+    color: #fff !important;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none !important; /* Xóa gạch chân */
+}
+/* Đảm bảo nếu dùng thẻ a bên trong hoặc thay thế btn-black thì màu vẫn trắng */
+.btn-black a {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+.btn-black:hover {
+    background: #444;
+}
