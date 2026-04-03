@@ -1,3 +1,6 @@
+main{
+    padding-top: 120px;
+}
 /* Thanh slider */
 .left-slider{
     height: 620px;
@@ -7,7 +10,7 @@
     scroll-snap-type: y mandatory;
     padding: 15px;
     gap: 10px;
-    position: fixed;
+    position: relative;
     margin-top: 10px;
     z-index: 1000;
 }

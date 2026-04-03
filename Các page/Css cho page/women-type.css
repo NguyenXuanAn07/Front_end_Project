@@ -2,15 +2,24 @@ div{
   display: block;
 }
 /* Div đầu */
+.trending{
+  margin-top: 40px;
+}
+.trending h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+  margin: 0 40px;
+}
 .grid-container {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
-  grid-template-rows: 1fr 1fr; /* 2 hàng bằng nhau */
+  
   gap: 0; /* bỏ khoảng cách */
-  width: 100vw; /* full chiều ngang */
-  height: 100vw; /* chiều cao co giãn theo nội dung */
+  width: 100%; /* full chiều ngang */
   z-index: 1;
+  object-fit: cover;
+  
 }
 .grid-container img {
   width: 100%;
@@ -48,6 +57,21 @@ div{
 }
 
 /* Div sau */
+.shop-by-color{
+  margin-top: 40px;
+}
+.shop-by-color h2{
+  margin-bottom: 10px;
+  font-size: 30px;
+  margin: 0 40px;
+}
+.shop-by-sport{
+  margin-top: 40px;
+}
+.shop-by-sport h2{
+  margin-bottom: 10px;
+  margin: 0 40px;
+}
 .first-slider-of-women {
   display: flex;
   overflow-x: auto;
@@ -61,14 +85,16 @@ div{
 .types-of-first-slider-of-women {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: 300px; /* hoặc điều chỉnh theo ý */
+  width: 400px; /* hoặc điều chỉnh theo ý */
+  gap: 5px
 }
 .types-of-first-slider-of-women a{
   text-decoration: none;
+  font-size: 20px;
 }
 #img-scroll-of-women{
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
 }
 .content-on-pictures2{
   color: black;
@@ -87,14 +113,15 @@ div{
 .types-of-second-slider-of-women {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: 300px; /* hoặc điều chỉnh theo ý */
+  width: 400px; /* hoặc điều chỉnh theo ý */
 }
 .types-of-second-slider-of-women a{
   text-decoration: none;
+  font-size: 20px;
 }
 #img-scroll-of-women2{
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
 }
 .content-on-pictures22{
   color: black;
