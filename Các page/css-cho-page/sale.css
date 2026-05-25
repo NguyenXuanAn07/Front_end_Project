@@ -3,17 +3,15 @@ main{
 }
 /* Thanh slider */
 .left-slider{
-    height: 620px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    width: 150px;
-    scroll-snap-type: y mandatory;
-    padding: 15px;
-    gap: 10px;
-    position: relative;
-    margin-top: 10px;
-    z-index: 1000;
-}
+    position: sticky;        /* cố định bên trái màn hình */
+  top: 0;
+  left: 0;
+  width: 250px;           /* chiều rộng sidebar */
+  height: 100%;           /* chiếm toàn bộ chiều cao màn hình */
+  background-color: #fff; /* nền trắng */
+  border-right: 1px solid #ddd;     
+  padding: 20px;
+  overflow-y: auto;  }
 .left-slider li{
     list-style: none;
 }

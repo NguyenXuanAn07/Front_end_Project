@@ -22,27 +22,19 @@
           />
         </div>
         <h1>Now let's make you a Nike Member.</h1>
-        <p class="sub-text">
-          We've sent a code to <span id="display-email">user@gmail.com</span>
-          <a onclick="showView('signin')" class="edit-link">Edit</a>
-        </p>
+        
 
         <div class="input-wrapper">
-          <input type="text" placeholder="Code*" />
+          <input type="email" id="email" placeholder="Email*" />
           <i class="fa-solid fa-rotate-right input-icon"></i>
         </div>
 
-        <div class="grid-2">
-          <div class="input-wrapper">
-            <input type="text" placeholder="First Name*" />
-          </div>
-          <div class="input-wrapper">
-            <input type="text" placeholder="Surname*" />
-          </div>
+        <div class="input-wrapper">
+          <input type="text" id="full-name" placeholder="Full Name" />
         </div>
 
         <div class="input-wrapper">
-          <input type="password" placeholder="Password*" />
+          <input type="password" id="password" placeholder="Password*" />
           <i class="fa-regular fa-eye input-icon"></i>
         </div>
         <ul class="requirements">
@@ -62,28 +54,13 @@
           <i class="fa-solid fa-chevron-down input-icon"></i>
         </div>
 
-        <span class="dob-label">Date of Birth</span>
-        <div class="grid-3">
-          <div class="input-wrapper">
-            <input type="text" placeholder="Day*" />
-          </div>
-          <div class="input-wrapper">
-            <input type="text" placeholder="Month*" />
-          </div>
-          <div class="input-wrapper">
-            <input type="text" placeholder="Year*" />
-          </div>
+        <div class="input-wrapper">
+          <input type="tel" id="phone" placeholder="Phone" />
         </div>
-        <p
-          style="
-            font-size: 11px;
-            color: #7e7e7e;
-            margin-bottom: 25px;
-            margin-top: -5px;
-          "
-        >
-          Get a Nike Member Reward on your birthday.
-        </p>
+
+        <div class="input-wrapper">
+          <input type="text" id="address" placeholder="Address" />
+        </div>
 
         <div class="checkbox-group">
           <input type="checkbox" />
@@ -100,13 +77,12 @@
             <a href="#">Terms of Use</a>.</span
           >
         </div>
-
         <div class="form-actions">
-          <button type="submit" class="btn-black">
-            <a href="../index.html">Create Account</a>
+          <button type="submit" id="btn-register" class="btn-black">Create Account
           </button>
         </div>
       </div>
     </main>
+    <script src="auth.js"></script>
   </body>
 </html>
