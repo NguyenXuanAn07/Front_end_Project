@@ -6,12 +6,13 @@ main {
   position: sticky; /* cố định bên trái màn hình */
   top: 0;
   left: 0;
-  width: 250px; /* chiều rộng sidebar */
+  width: 180px; /* chiều rộng sidebar */
   height: 100%; /* chiếm toàn bộ chiều cao màn hình */
   background-color: #fff; /* nền trắng */
   border-right: 1px solid #ddd;
-  padding: 20px;
+  padding: 15px;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 .left-slider li {
   list-style: none;
@@ -63,7 +64,8 @@ main {
 }
 
 .list-items {
-  flex: 1; /* takes remaining space to the right of the sidebar */
+  flex: 1;
+  min-width: 0;
 }
 
 .spotlight {
@@ -81,7 +83,8 @@ main {
 /* CSS cho list items */
 .big-div {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  min-height: calc(100vh - 120px);
 }
 .shoes-items {
   display: flex;
@@ -91,8 +94,9 @@ main {
   margin-top: 10px;
 }
 .img-content img {
-  height: 500px;
-  width: 500px;
+  height: auto;
+  width: 100%;
+  max-width: 400px;
 }
 .img-content h3 {
   font-weight: 540;
@@ -104,6 +108,7 @@ main {
 /* Add to Bag button styling */
 .Tshirt,
 .shoes {
+  position: relative;
 }
 
 .add-to-bag-btn {
