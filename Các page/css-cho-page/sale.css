@@ -1,35 +1,36 @@
-main{
-    padding-top: 120px;
+main {
+  padding-top: 120px;
 }
 /* Thanh slider */
-.left-slider{
-    position: sticky;        /* cố định bên trái màn hình */
+.left-slider {
+  position: sticky; /* cố định bên trái màn hình */
   top: 0;
   left: 0;
-  width: 250px;           /* chiều rộng sidebar */
-  height: 100%;           /* chiếm toàn bộ chiều cao màn hình */
+  width: 250px; /* chiều rộng sidebar */
+  height: 100%; /* chiếm toàn bộ chiều cao màn hình */
   background-color: #fff; /* nền trắng */
-  border-right: 1px solid #ddd;     
+  border-right: 1px solid #ddd;
   padding: 20px;
-  overflow-y: auto;  }
-.left-slider li{
-    list-style: none;
+  overflow-y: auto;
 }
-.left-slider li :hover{
-    cursor: pointer;
+.left-slider li {
+  list-style: none;
 }
-.left-slider li a{
-    text-decoration: none;
-    color: black;
-    display: block; 
-    padding: 8px 12px;
+.left-slider li :hover {
+  cursor: pointer;
 }
- /* Cách menu của elements trong slider, ĐỂ TẠM CSS, SẼ BỔ SUNG JS SAU */ 
-.menu-of-list-slider .show{
-    display: block;
+.left-slider li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 8px 12px;
 }
-.menu-toggle:hover + .menu-of-list-slider{
-    display: block;
+/* Cách menu của elements trong slider, ĐỂ TẠM CSS, SẼ BỔ SUNG JS SAU */
+.menu-of-list-slider .show {
+  display: block;
+}
+.menu-toggle:hover + .menu-of-list-slider {
+  display: block;
 }
 .menu-of-list-slider {
   display: none; /* Ẩn mặc định */
@@ -41,19 +42,18 @@ main{
   display: block; /* submenu vẫn hiện khi di chuột vào chính nó */
 }
 
-
 /* Khoảng cách các items trong slider */
-.left-slider .menu{
-    margin: 4px;
+.left-slider .menu {
+  margin: 4px;
 }
 .left-slider .menu-toggle {
-    margin: 12px;
+  margin: 12px;
 }
 /* Button */
-.menu-of-list-slider button{
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
+.menu-of-list-slider button {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
 }
 /* Layout: sidebar + product grid side by side */
 .list-products {
@@ -66,39 +66,62 @@ main{
   flex: 1; /* takes remaining space to the right of the sidebar */
 }
 
-.spotlight{
+.spotlight {
   text-align: center;
   font-weight: 800;
   font-size: 40px;
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
 }
-.text-under-spotlight p{
+.text-under-spotlight p {
   text-align: center;
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-weight: 200px;
 }
 
 /* CSS cho list items */
-.big-div{
-    display: flex;
-    justify-content: space-between;
+.big-div {
+  display: flex;
+  justify-content: space-between;
 }
-.shoes-items{
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 100px;
-    margin-top: 10px;
+.shoes-items {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 100px;
+  margin-top: 10px;
 }
-.img-content img{
-    height: 500px;
-    width: 500px;
+.img-content img {
+  height: 500px;
+  width: 500px;
 }
-.img-content h3{
-    font-weight: 540;
+.img-content h3 {
+  font-weight: 540;
+}
+.img-content p {
+  color: gray;
+}
 
-}
-.img-content p{
-    color: gray;
+/* Add to Bag button styling */
+.Tshirt,
+.shoes {
 }
 
+.add-to-bag-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #000;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.add-to-bag-btn:hover {
+  background-color: #333;
+}
