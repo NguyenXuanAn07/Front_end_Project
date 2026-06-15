@@ -1,0 +1,275 @@
+/* === CART PAGE === */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Cart Container */
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.cart-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #111;
+  text-align: center;
+}
+
+/* Cart Content Layout */
+.cart-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+/* === CART ITEMS TABLE === */
+.cart-items {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table thead {
+  border-bottom: 2px solid #ddd;
+}
+
+.cart-table th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #111;
+  text-transform: uppercase;
+}
+
+.cart-item {
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item:hover {
+  background-color: #f9f9f9;
+}
+
+.cart-item td {
+  padding: 20px 12px;
+  vertical-align: middle;
+}
+
+/* Product Info Column */
+.product-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.product-info img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+}
+
+.product-info div {
+  flex: 1;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.product-category {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Price Column */
+.price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  min-width: 100px;
+}
+
+/* Quantity Column */
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+  background-color: #111;
+  color: white;
+  border-color: #111;
+}
+
+.quantity input {
+  width: 40px;
+  height: 32px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  padding: 0;
+}
+
+.quantity input:focus {
+  outline: none;
+  border-color: #111;
+}
+
+/* Total Column */
+.total {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  min-width: 120px;
+}
+
+/* Remove Button */
+.remove {
+  text-align: center;
+}
+
+.remove-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #999;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: #f5f5f5;
+  color: #111;
+  border-color: #111;
+}
+
+/* === ORDER SUMMARY === */
+.cart-summary {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.cart-summary h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.summary-row span:last-child {
+  color: #111;
+  font-weight: 500;
+}
+
+.total-row {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  padding: 15px 0;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  margin: 15px 0;
+}
+
+.total-row span:last-child {
+  color: #111;
+}
+
+/* Checkout Button */
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.checkout-btn:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Continue Shopping Link */
+.continue-shopping {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding: 12px;
+  color: #111;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #111;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.continue-shopping:hover {
+  background-color: #111;
+  color: white;
+}
+
+
