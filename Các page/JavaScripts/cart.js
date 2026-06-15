@@ -10,25 +10,25 @@ async function addToBag(productId) {
   }
 
   //Gửi request thêm vào giỏ hàng
-  const reponse = await fetch("http://127.0.0.1:8000/cart/add", {
+  const response = await fetch("http://127.0.0.1:8000/cart/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: "Bearer" + token, //gửi kèm token khi gọi API giỏ hàng -> biết được user nào
+      Authorization: "Bearer " + token, //gửi kèm token khi gọi API giỏ hàng -> biết được user nào
     },
-    body: JSON.stringfy({
+    body: JSON.stringify({
       product_id: productId,
       quantity: 1,
     }),
   });
-  console.log("Response status:", response.status)
+  console.log("Response status:", response.status);
   const data = await response.json(); //await/async: cách viết fetch gọn hơn .then() -> chờ kết quả xong mới làm tiếp
-  console.log("Data:", data)
-  
+  console.log("Data:", data);
+
   if (response.ok) {
     alert("Đã thêm vào giỏ hàng!");
   } else {
-    alert("Lỗi" + data.detail);
+    alert("Lỗi " + data.detail);
   }
 }
 
@@ -41,4 +41,3 @@ async function addToBag(event, productId) {
   const token = localStorage.getItem("token");
   console.log("Token:", token);
 }
-

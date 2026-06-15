@@ -1,7 +1,7 @@
-.grid-container{
+.grid-container {
   margin-bottom: 40px;
 }
-.green-edit{
+.green-edit {
   margin-bottom: 40px;
   padding: 0 40px;
 }
@@ -59,7 +59,7 @@
   cursor: pointer; /* hiện bàn tay khi hover */
   transition: all 0.3s ease; /* hiệu ứng hover */
 }
-.shop-button a{
+.shop-button a {
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -68,87 +68,163 @@
   background-color: #cacacb; /* nền đen khi hover */
   color: white; /* chữ trắng khi hover */
 }
+
+/* === SLIDER SẢN PHẨM === */
 .slider {
-  display: flex; /*sắp xếp phần tử theo hàng ngang */
-  overflow-x: auto; /*kéo dài list sản phần nếu sản phẩm đủ nhiều hơn độ dài box */
-  scroll-behavior: smooth; /*kéo thanh sp mượt mà, ko bị giật; */
-  width: 100%;
-  scroll-snap-type: x mandatory;
-  padding: 10px;
-  gap: 20px;
-  position: relative;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 16px 0;
+  scrollbar-width: none; /* ẩn thanh scroll */
 }
-.green-products {
-  flex: 0 0 100px; /*mỗi sản phẩm chiếm đúng 300px, ko co giãn */
-  text-align: center; /*căn nội dung vào giữa */
-  padding: 20px;
-  background-color: #f2f2f2;
-  border: #ccc;
-  scroll-snap-align: start;
+.slider::-webkit-scrollbar {
+  display: none; /* ẩn thanh scroll trên Chrome */
 }
-.controls-of-green-products {
-  margin-top: 20px;
-  text-align: center;
+
+.green-product {
+  flex: 0 0 220px; /* mỗi sản phẩm rộng 220px */
+  text-align: left;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
 }
-#img-scroll {
-  width: 300px;
-  height: 300px;
+.green-product:hover {
+  transform: translateY(-4px); /* nhấc lên khi hover */
 }
-.name-of-slider-product{
-    text-decoration: none;
-    color: black;
-}
-.type-of-slider-product{
-    text-decoration: none;
-    color: black;
-}
-.slider a {
+.green-product a {
   text-decoration: none;
   color: black;
+  display: block;
 }
-/* Slider 2 */
-.shop-by-sport{
+.green-product img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.green-product .name-of-slider-product {
+  padding: 8px 4px;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+}
+.green-product .type-of-slider-product {
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+}
+
+/* === SHOP BY SPORTS === */
+.second-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 16px 0;
+  scrollbar-width: none;
+}
+.second-slider::-webkit-scrollbar {
+  display: none;
+}
+.types-of-second-slider-product {
+  flex: 0 0 200px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.types-of-second-slider-product:hover {
+  transform: translateY(-4px);
+}
+.types-of-second-slider-product a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+#img-scroll2 {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.types-of-second-slider-product h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 8px 0 4px;
+  padding: 0;
+}
+
+/* === SPOTLIGHT === */
+.spotlight {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+}
+.text-under-spotlight {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.text-under-spotlight p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0 40px 40px;
+  margin: 0;
+}
+.item {
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.item:hover {
+  transform: scale(1.05);
+}
+.item:hover img {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+.item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+.item span {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
+  line-height: 1.4;
+  padding: 0 4px;
+}
+
+/* === GREEN EDIT SECTION === */
+.green-edit h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.shop-by-sport {
   margin-bottom: 40px;
   padding: 0 40px;
 }
-.second-slider{
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    width: 100%;
-    scroll-snap-type: x mandatory;
-    padding: 10px;
-    gap: 20px;
-}
-.second-slider a{
-  text-decoration: none;
-}
-.type-of-second-slider-product{
-    flex: 0 0 90px;
-    text-align: center;
-    padding: 20px;
-    scroll-snap-align: start;
-}
-.type-of-second-slider-product a {
-  text-decoration: none;
-
-}
-.second-slider a h2{
-    text-decoration: none;
-    color: black;
-}
-#img-scroll2{
-    height: 300px;
-    width: 300px;
-}
-.spotlight{
-  text-align: center;
-  font-weight: 800;
-  font-size: 40px;
-  font-family: 'Montserrat', Arial, sans-serif;
-}
-.text-under-spotlight p{
-  text-align: center;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 200px;
+.shop-by-sport h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
