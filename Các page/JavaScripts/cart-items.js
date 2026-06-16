@@ -1,54 +1,54 @@
 //Chạy ngay khi trang load xong
 async function loadCart() {
-    const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
 
-    //not yet login?
-    if(!token) {
-        alert("Please login first!")
-        window.location.href = "../SignIn_SignUp/signin.html"
-        return
-    }
+  //not yet login?
+  if (!token) {
+    alert("Please login first!");
+    window.location.href = "../SignIn_SignUp/signin.html";
+    return;
+  }
 
-    //Call API get cart
-    const response = await fetch("http://127.0.0.1:8000/cart/", {
-        method: "GET",
-        headers: {
-            "Authorization": "Bearer" + token
-        }
-    })
+  //Call API get cart
+  const response = await fetch("http://127.0.0.1:8000/cart/", {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
 
-    const data = await response.json()
+  const data = await response.json();
 
-    if(!response.ok) {
-        alert("Error: " + data.detail)
-    }
+  if (!response.ok) {
+    alert("Error: " + data.detail);
+  }
 
-    //HIỂN THỊ GIỎ HÀNG
-    renderCart(data)
+  //HIỂN THỊ GIỎ HÀNG
+  renderCart(data);
 }
 
 function renderCart(items) {
-    const tbody = document.getElementById("cart-tbody")
+  const tbody = document.getElementById("cart-tbody");
 
-    //Cart empty
-    if(items.length === 0) {
-        tbody.innerHTMl = `
+  //Cart empty
+  if (items.length === 0) {
+    tbody.innerHTML = `
             <tr>
                 <td colspan="5" style="text-align:center; padding:40px,">
                     Giỏ hàng trống!
                 </td>
             </tr>
-        `
-        return
-    }
+        `;
+    return;
+  }
 
-    let total = 0
-    tbody.innerHTML = ""
+  let total = 0;
+  tbody.innerHTML = "";
 
-    items.forEach((item) => {
-        total += Number(item.subtotal)
-        tbody.innerHTML += `
-            <tr class="cart-item" data-id="${item.product_id}>
+  items.forEach((item) => {
+    total += Number(item.subtotal);
+    tbody.innerHTML += `
+            <tr class="cart-item" data-id="${item.product_id}">
                 <td class="product-info">
                     <div>
                         <p class="product-name">${item.product_name}</p>
@@ -66,29 +66,69 @@ function renderCart(items) {
                     <button class="remove-btn">✕</button>
                 </td>
             </tr>
-        `
-    });
+        `;
+  });
 
-    //Tính thuế 10%
-    const TAX = 0.10
-    const tax = total * TAX
-    const finallyTotal = total + tax
+  //Tính thuế 10%
+  const TAX = 0.1;
+  const tax = total * TAX;
+  const finallyTotal = total + tax;
 
-    //Update total
-    document.getElementById("subtotal").textContent = total.toLocaleString("vi-VN") + "₫"
-    document.getElementById("total").textContent = finallyTotal.toLocaleString("vi-VN") + "₫"
-    document.getElementById("tax").textContent = tax.toLocaleString("vi-VN") + "₫"
+  //Update total
+  document.getElementById("subtotal").textContent =
+    total.toLocaleString("vi-VN") + "₫";
+  document.getElementById("total").textContent =
+    finallyTotal.toLocaleString("vi-VN") + "₫";
+  document.getElementById("tax").textContent =
+    tax.toLocaleString("vi-VN") + "₫";
 
-    //Lắng nghe sự kiện click trên toàn bộ bảng
-    document.getElementById("cart-tbody").addEventListener("click", (e) => {
+  //Lắng nghe sự kiện click trên toàn bộ bảng
+  document.getElementById("cart-tbody").addEventListener("click", (e) => {
+    //Verify what button can be push
+    const btn = e.target;
 
-        //Verify what button can be push
-        const btn = e.target
+    const row = btn.closest("tr"); //leo lên thẻ <tr. cha gần nhất
+    if (!row) return; //bấm nhầm chỗ trống thì bỏ qua
 
-        const row = btn.closest("tr")
-    })
+    const productId = row.dataset.id; //lấy data-id từ <tr>
+    const input = row.querySelector("input"); //lấy ô <input> số lượng
+    let quantity = Number(input.value); //số lượng hiện tại
+
+    if (btn.textContent === "+") {
+      quantity += 1;
+      updateCart(productId, quantity);
+    }
+
+    if (btn.textContent === "-") {
+      if (quantity <= 1) return;
+      quantity -= 1;
+      updateCart(productId, quantity);
+    }
+  });
 }
 
+//HÀM UPDATECART()
+async function updateCart(productId, quantity) {
+  const token = localStorage.getItem("token");
+
+  const response = await fetch("http://127.0.0.1:8000/cart/" + productId, {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      quantity: quantity,
+    }),
+  });
+  const data = await response.json();
+
+  if (!response.ok) {
+    alert("Lỗi: " + data.detail);
+    return;
+  }
+  loadCart();
+}
 
 //Run when page loaded
-loadCart()
+loadCart();
