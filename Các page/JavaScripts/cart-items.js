@@ -104,6 +104,8 @@ function renderCart(items) {
       quantity -= 1;
       updateCart(productId, quantity);
     }
+
+    if (btn.classList.contains("remove-btn")) removeFromCart(productId);
   });
 }
 
@@ -130,5 +132,66 @@ async function updateCart(productId, quantity) {
   loadCart();
 }
 
+//HÀM REMOVEFROMCART
+async function removeFromCart(productId) {
+  const token = localStorage.getItem("token");
+
+  const response = await fetch("http://127.0.0.1:8000/cart/" + productId, {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+  const data = await response.json();
+
+  if (!response.ok) {
+    alert("Lỗi:" + data.detail);
+    return;
+  }
+  loadCart();
+}
 //Run when page loaded
 loadCart();
+
+//NÚT CHECKOUT/ĐẶT HÀNG
+document.getElementById("checkout-btn").addEventListener("click", async () => {
+  try {
+    const token = localStorage.getItem("token")
+    if(!token) {
+      alert("Vui lòng đăng nhập trước!")
+      return
+    }
+
+    const address = prompt("Nhập địa chỉ giao hàng")
+    if(!address) {
+      alert('Vui lòng nhập địa chỉ giao hàng!')
+      return
+    }
+    
+    console.log("Đang gửi request checkout...")
+    const response = await fetch("http://127.0.0.1:8000/cart/checkout", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify({
+        shipping_address: address
+      })
+    })
+    
+    console.log("Response status:", response.status)
+    const data = await response.json()
+    console.log("Response data:", data)
+    
+    if(!response.ok) {
+      alert("Lỗi: " + data.detail)
+      return
+    } else{
+      alert("Đặt hàng thành công, mã đơn:" + data.order_id + "\n Tổng tiền: " + Number(data.total).toLocaleString("vi-VN") + "₫")
+    }
+  } catch (error) {
+    console.error("Lỗi:", error)
+    alert("Lỗi: " + error.message)
+  }
+})
