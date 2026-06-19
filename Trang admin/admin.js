@@ -266,10 +266,7 @@ const STATUS_LABELS = {
 };
 
 // ── RENDER ──
-function render() {
-  syncCustomerOrders();
-  allOrders = loadOrders();
-
+async function render() {
   // KPI
   const total = allOrders.length;
   const pending = allOrders.filter((o) => o.status === "pending").length;
@@ -542,15 +539,59 @@ function switchPage(page) {
 }
 
 // ── INIT ──
-render();
+async function init() {
+  await loadOrders();
+  render();
+}
+init();
 
-// Auto-refresh every 10s to pick up customer orders
-setInterval(() => {
-  syncCustomerOrders();
+// Auto-refresh mỗi 10s để cập nhật đơn hàng mới
+setInterval(async function () {
   const before = allOrders.length;
-  allOrders = loadOrders();
-  if (allOrders.length > before) {
-    toast("🛎️ Có đơn hàng mới từ khách!");
-    render();
+  await loadOrders();
+  if (allOrders.length !== before) {
+    toast("🛎️ Đã cập nhật đơn hàng!");
   }
+  render();
 }, 10000);
+
+// ── DATA LAYER ──
+const ITEMS_PER_PAGE = 8;
+
+let allOrders = [];
+let currentFilter = "all";
+let currentSort = "newest";
+let currentSearch = "";
+let currentPage = 1;
+let editingId = null;
+
+//Lấy đơn hàng thật từ API
+async function loadOrder() {
+  try {
+    const response = await fetch("http://127.0.0.1:8000/cart/admin/orders");
+    const data = await response.json();
+
+    //Chuyển dữu liệu từ APi sang đúng format mà admin.js đang dùng
+    allOrders = data.map((p) => {
+      return {
+        id: "NK" + o.id,
+        product: o.product,
+        emoji: "👟",
+        size: "N/A",
+        color: "N/A",
+        qty: 1,
+        customer: o.customer,
+        email: o.email,
+        phone: o.phone || "",
+        address: o.address || "",
+        date: o.created_at,
+        price: o.total_amount,
+        status: o.status,
+        note: "",
+      };
+    });
+  } catch (error) {
+    alert("Lỗi tải đơn hàng:" + error);
+    allOrders = [];
+  }
+}

@@ -159,6 +159,7 @@ document.getElementById("checkout-btn").addEventListener("click", async () => {
     const token = localStorage.getItem("token")
     if(!token) {
       alert("Vui lòng đăng nhập trước!")
+      window.location.href = "../SignIn_SignUp/signin.html"
       return
     }
 
@@ -171,6 +172,7 @@ document.getElementById("checkout-btn").addEventListener("click", async () => {
     console.log("Đang gửi request checkout...")
     const response = await fetch("http://127.0.0.1:8000/cart/checkout", {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-type": "application/json",
         "Authorization": "Bearer " + token
