@@ -1,4 +1,4 @@
-//Chạy ngay khi trang load xong
+﻿//Chạy ngay khi trang load xong
 async function loadCart() {
   const token = localStorage.getItem("token");
 
@@ -117,7 +117,7 @@ async function updateCart(productId, quantity) {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + token,
-      "Content-type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       quantity: quantity,
@@ -156,44 +156,49 @@ loadCart();
 //NÚT CHECKOUT/ĐẶT HÀNG
 document.getElementById("checkout-btn").addEventListener("click", async () => {
   try {
-    const token = localStorage.getItem("token")
-    if(!token) {
-      alert("Vui lòng đăng nhập trước!")
-      window.location.href = "../SignIn_SignUp/signin.html"
-      return
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Vui lòng đăng nhập trước!");
+      window.location.href = "../SignIn_SignUp/signin.html";
+      return;
     }
 
-    const address = prompt("Nhập địa chỉ giao hàng")
-    if(!address) {
-      alert('Vui lòng nhập địa chỉ giao hàng!')
-      return
+    const address = prompt("Nhập địa chỉ giao hàng");
+    if (!address) {
+      alert("Vui lòng nhập địa chỉ giao hàng!");
+      return;
     }
-    
-    console.log("Đang gửi request checkout...")
+
+    console.log("Đang gửi request checkout...");
     const response = await fetch("http://127.0.0.1:8000/cart/checkout", {
       method: "POST",
-      mode: "cors",
       headers: {
-        "Content-type": "application/json",
-        "Authorization": "Bearer " + token
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
       },
       body: JSON.stringify({
-        shipping_address: address
-      })
-    })
-    
-    console.log("Response status:", response.status)
-    const data = await response.json()
-    console.log("Response data:", data)
-    
-    if(!response.ok) {
-      alert("Lỗi: " + data.detail)
-      return
-    } else{
-      alert("Đặt hàng thành công, mã đơn:" + data.order_id + "\n Tổng tiền: " + Number(data.total).toLocaleString("vi-VN") + "₫")
+        shipping_address: address,
+      }),
+    });
+
+    console.log("Response status:", response.status);
+    const data = await response.json();
+    console.log("Response data:", data);
+
+    if (!response.ok) {
+      alert("Lỗi: " + data.detail);
+      return;
+    } else {
+      alert(
+        "Đặt hàng thành công, mã đơn:" +
+          data.order_id +
+          "\n Tổng tiền: " +
+          Number(data.total).toLocaleString("vi-VN") +
+          "₫",
+      );
     }
   } catch (error) {
-    console.error("Lỗi:", error)
-    alert("Lỗi: " + error.message)
+    console.error("Lỗi:", error);
+    alert("Lỗi: " + error.message);
   }
-})
+});

@@ -2,180 +2,35 @@
 const STORAGE_KEY = "nike_admin_orders";
 const ITEMS_PER_PAGE = 8;
 
-const DEMO_ORDERS = [
-  {
-    id: "NK001",
-    product: "Air Max 95",
-    emoji: "👟",
-    size: "42",
-    color: "Black/White",
-    qty: 1,
-    customer: "Nguyễn Văn An",
-    email: "an.nguyen@gmail.com",
-    phone: "0912345678",
-    address: "12 Lý Thường Kiệt, Hà Nội",
-    date: "2024-06-01T09:15:00",
-    price: 4200000,
-    status: "pending",
-    note: "Giao giờ hành chính",
-  },
-  {
-    id: "NK002",
-    product: "Air Jordan 1 Low",
-    emoji: "🏀",
-    size: "41",
-    color: "Red",
-    qty: 2,
-    customer: "Trần Thị Bảo",
-    email: "bao.tran@hotmail.com",
-    phone: "0987654321",
-    address: "88 Hoàng Cầu, Hà Nội",
-    date: "2024-06-02T14:22:00",
-    price: 7800000,
-    status: "confirmed",
-    note: "",
-  },
-  {
-    id: "NK003",
-    product: "Nike Dunk Low",
-    emoji: "⚡",
-    size: "39",
-    color: "Panda",
-    qty: 1,
-    customer: "Lê Minh Châu",
-    email: "chau.le@yahoo.com",
-    phone: "0967891234",
-    address: "45 Nguyễn Trãi, TP.HCM",
-    date: "2024-06-03T10:05:00",
-    price: 3500000,
-    status: "shipping",
-    note: "",
-  },
-  {
-    id: "NK004",
-    product: "Nike Pegasus 41",
-    emoji: "🔵",
-    size: "43",
-    color: "Blue",
-    qty: 1,
-    customer: "Phạm Quốc Dũng",
-    email: "dung.pham@gmail.com",
-    phone: "0903456789",
-    address: "7 Điện Biên Phủ, Đà Nẵng",
-    date: "2024-06-03T16:40:00",
-    price: 3200000,
-    status: "delivered",
-    note: "Khách VIP",
-  },
-  {
-    id: "NK005",
-    product: "Air Force 1 07",
-    emoji: "🤍",
-    size: "40",
-    color: "White",
-    qty: 3,
-    customer: "Hoàng Thu Hà",
-    email: "ha.hoang@gmail.com",
-    phone: "0978123456",
-    address: "22 Phan Bội Châu, Hà Nội",
-    date: "2024-06-04T08:30:00",
-    price: 9600000,
-    status: "pending",
-    note: "",
-  },
-  {
-    id: "NK006",
-    product: "KD18",
-    emoji: "🔴",
-    size: "44",
-    color: "Red/Gold",
-    qty: 1,
-    customer: "Vũ Thanh Sơn",
-    email: "son.vu@gmail.com",
-    phone: "0945678901",
-    address: "91 Bạch Đằng, TP.HCM",
-    date: "2024-06-04T11:10:00",
-    price: 4400000,
-    status: "cancelled",
-    note: "Khách huỷ",
-  },
-  {
-    id: "NK007",
-    product: "Nike Blazer Mid",
-    emoji: "🟠",
-    size: "41",
-    color: "Orange",
-    qty: 1,
-    customer: "Đỗ Ngọc Linh",
-    email: "linh.do@gmail.com",
-    phone: "0912000111",
-    address: "38 Trần Phú, Hải Phòng",
-    date: "2024-06-05T13:20:00",
-    price: 2800000,
-    status: "confirmed",
-    note: "",
-  },
-  {
-    id: "NK008",
-    product: "Nike Cortez",
-    emoji: "🌿",
-    size: "38",
-    color: "Green",
-    qty: 2,
-    customer: "Ngô Phương Thảo",
-    email: "thao.ngo@gmail.com",
-    phone: "0989876543",
-    address: "55 Ngô Gia Tự, Hà Nội",
-    date: "2024-06-05T17:00:00",
-    price: 5600000,
-    status: "shipping",
-    note: "",
-  },
-  {
-    id: "NK009",
-    product: "Air Max Muse",
-    emoji: "💜",
-    size: "37",
-    color: "Purple",
-    qty: 1,
-    customer: "Bùi Khánh Linh",
-    email: "linh.bui@gmail.com",
-    phone: "0900123123",
-    address: "14 Lê Lợi, Huế",
-    date: "2024-06-06T09:00:00",
-    price: 3800000,
-    status: "pending",
-    note: "Gói quà",
-  },
-  {
-    id: "NK010",
-    product: "Nike Vomero 18",
-    emoji: "⚪",
-    size: "43",
-    color: "Grey/White",
-    qty: 1,
-    customer: "Nguyễn Xuân An",
-    email: "an.nguyen@gmail.com",
-    phone: "0956789012",
-    address: "77 Hai Bà Trưng, Hà Nội",
-    date: "2024-06-06T11:30:00",
-    price: 4100000,
-    status: "delivered",
-    note: "",
-  },
-];
-
-function loadOrders() {
+async function loadOrders() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch (e) {}
-  const initial = DEMO_ORDERS.map((o) => ({ ...o }));
-  saveOrders(initial);
-  return initial;
+    const response = await fetch("http://127.0.0.1:8000/cart/admin/orders");
+    const data = await response.json();
+
+    allOrders = data.map(function (o) {
+      return {
+        id: "NK" + o.id,
+        product: o.product,
+        emoji: "👟",
+        size: "N/A",
+        color: "N/A",
+        qty: 1,
+        customer: o.customer,
+        email: o.email,
+        phone: o.phone || "",
+        address: o.address || "",
+        date: o.created_at,
+        price: o.total_amount,
+        status: o.status,
+        note: "",
+      };
+    });
+  } catch (error) {
+    console.log("Lỗi tải đơn hàng:", error);
+    allOrders = [];
+  }
 }
 function saveOrders(orders) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
 }
 
 let allOrders = loadOrders();
