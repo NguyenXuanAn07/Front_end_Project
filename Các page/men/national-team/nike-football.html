@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>National Team - Nike Football</title>
+    <link rel="stylesheet" href="./nike-football.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../head,foot/css/header.css" />
+  </head>
+  <body>
+    <!-- 1. Top Header -->
+    <header class="top-header">
+      <div class="jordan-logo">
+        <img src="../../head,foot/img/JORDAN-removebg-preview.png" alt="" />
+      </div>
+      <div class="top-nav-links">
+        <a href="#">Find a Store</a>
+        <span>|</span>
+        <a href="#">Help</a>
+        <span>|</span>
+        <a href="#">Join Us</a>
+        <span>|</span>
+        <a href="../../SignIn_SignUp/signin.html">Sign In</a>
+      </div>
+    </header>
+
+    <!-- 2. Main Header -->
+    <header class="main-header">
+      <a href="../../index.html" class="nike-logo">
+        <img src="../../head,foot/img/logo.png" alt="" />
+      </a>
+      <nav class="nav-menu">
+        <div class="nav-item"><a href="../../index.html">New &amp; Featured</a></div>
+        <div class="nav-item"><a href="../men.html">Men</a></div>
+        <div class="nav-item"><a href="../../women.html">Women</a></div>
+        <div class="nav-item"><a href="../../kids-type.html">Kids</a></div>
+        <div class="nav-item"><a href="./nike-football.html">Nike Football</a></div>
+        <div class="nav-item"><a href="../../sale-type.html">Sale</a></div>
+      </nav>
+      <div class="header-right">
+        <div class="search-container">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+        <i class="fa-regular fa-heart icon-btn"></i>
+        <i class="fa-regular fa-bag-shopping icon-btn"></i>
+      </div>
+    </header>
+
+    <!-- 3. Announcement Bar -->
+    <div class="announcement-bar">
+      <p>Free Standard Delivery &amp; 30-Day Free Returns <a href="#">Join Now</a> <a href="#">View Details</a></p>
+    </div>
+
+    <!-- 4. Hero Banner -->
+    <section class="football-hero">
+      <img src="https://static.nike.com/a/images/w_2880,h_1600,c_fill,f_auto/4ed830f2-5f31-4cd9-b1c9-efe735b6d1fc/image.jpg" alt="Nike Football Presents - National Team Collections" />
+      <div class="football-hero-text">
+        <p class="hero-eyebrow">Nike Football Presents</p>
+        <h1 class="hero-title">National Team<br />Collections</h1>
+      </div>
+    </section>
+
+    <!-- 5. Main Content -->
+    <main class="plp-main">
+      <div class="plp-top-bar">
+        <h1 class="plp-title">National Team <span class="plp-count">(175)</span></h1>
+        <div class="plp-controls">
+          <button class="plp-hide-filters-btn" id="toggle-filters-btn">Hide Filters <i class="fa-solid fa-sliders"></i></button>
+          <div class="plp-sort" id="sort-dropdown">
+            <button class="plp-sort-toggle" id="sort-toggle-btn">
+              <span>Sort By</span>
+              <i class="fa-solid fa-chevron-down sort-arrow"></i>
+            </button>
+            <ul class="plp-sort-menu" id="sort-menu">
+              <li class="plp-sort-option selected" data-value="featured">Featured</li>
+              <li class="plp-sort-option" data-value="newest">Newest</li>
+              <li class="plp-sort-option" data-value="price-high-low">Price: High-Low</li>
+              <li class="plp-sort-option" data-value="price-low-high">Price: Low-High</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="plp-body" id="plp-body">
+        <!-- Sidebar Filters -->
+        <aside class="plp-sidebar" id="plp-sidebar">
+          <ul class="filter-category-list" id="category-list">
+            <li><a href="#" data-category="shoes">Shoes</a></li>
+            <li><a href="#" data-category="tops-tshirts">Tops &amp; T-Shirts</a></li>
+            <li><a href="#" data-category="hoodies-sweatshirts">Hoodies &amp; Sweatshirts</a></li>
+            <li><a href="#" data-category="jackets">Jackets</a></li>
+            <li><a href="#" data-category="trousers-tights">Trousers &amp; Tights</a></li>
+            <li><a href="#" data-category="shorts">Shorts</a></li>
+            <li><a href="#" data-category="tracksuits">Tracksuits</a></li>
+            <li><a href="#" data-category="skirts-dresses">Skirts &amp; Dresses</a></li>
+            <li><a href="#" data-category="socks">Socks</a></li>
+            <li><a href="#" data-category="accessories-equipment">Accessories &amp; Equipment</a></li>
+          </ul>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="gender-group">
+            <div class="filter-group-header" onclick="toggleFilter('gender-group')">
+              <span>Gender</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> Men</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Women</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Unisex</label>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="kids-group">
+            <div class="filter-group-header" onclick="toggleFilter('kids-group')">
+              <span>Kids</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> Boys</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Girls</label>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="price-group">
+            <div class="filter-group-header" onclick="toggleFilter('price-group')">
+              <span>Shop By Price</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> Under 1,000,000₫</label>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="sale-group">
+            <div class="filter-group-header" onclick="toggleFilter('sale-group')">
+              <span>Sale &amp; Offers</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> Sale</label>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="color-group">
+            <div class="filter-group-header" onclick="toggleFilter('color-group')">
+              <span>Color</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <div class="color-grid">
+                <div class="color-option"><span class="color-swatch" style="background: #6a1b9a"></span><span>Purple</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #111"></span><span>Black</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #e53935"></span><span>Red</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #f4511e"></span><span>Orange</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #1e88e5"></span><span>Blue</span></div>
+                <div class="color-option"><span class="color-swatch swatch-white" style="background: #fff"></span><span>White</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #7b4b2a"></span><span>Brown</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #5aa02c"></span><span>Green</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #fdd835"></span><span>Yellow</span></div>
+                <div class="color-option"><span class="color-swatch swatch-multi"></span><span>Multi-Colour</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #9e9e9e"></span><span>Grey</span></div>
+                <div class="color-option"><span class="color-swatch" style="background: #f48fb1"></span><span>Pink</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="brand-group">
+            <div class="filter-group-header" onclick="toggleFilter('brand-group')">
+              <span>Brand</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> Nike Sportswear</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Jordan</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Nike</label>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="sports-group">
+            <div class="filter-group-header" onclick="toggleFilter('sports-group')">
+              <span>Sports</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> Lifestyle</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Running</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Training &amp; Gym</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Basketball</label>
+              <div class="filter-extra-items">
+                <label class="filter-checkbox"><input type="checkbox" /> American Football</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Football</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Golf</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Tennis</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Walking</label>
+              </div>
+              <span class="filter-more-link" onclick="toggleMore(this)">+ More</span>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="bestfor-group">
+            <div class="filter-group-header" onclick="toggleFilter('bestfor-group')">
+              <span>Best For</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> Wet Weather Conditions</label>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="features-group">
+            <div class="filter-group-header" onclick="toggleFilter('features-group')">
+              <span>Features</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> 4-way stretch</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Drawcord</label>
+              <div class="filter-extra-items">
+                <label class="filter-checkbox"><input type="checkbox" /> Hooded</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Pockets</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Water-resistant</label>
+              </div>
+              <span class="filter-more-link" onclick="toggleMore(this)">+ More</span>
+            </div>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-group" id="technology-group">
+            <div class="filter-group-header" onclick="toggleFilter('technology-group')">
+              <span>Technology</span>
+              <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            </div>
+            <div class="filter-group-body" style="display: none">
+              <label class="filter-checkbox"><input type="checkbox" /> Dri-FIT</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Nike Max Air</label>
+              <label class="filter-checkbox"><input type="checkbox" /> Nike Air</label>
+              <div class="filter-extra-items">
+                <label class="filter-checkbox"><input type="checkbox" /> Nike Shox</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Nike Aero-FIT</label>
+              </div>
+              <span class="filter-more-link" onclick="toggleMore(this)">+ More</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <section>
+          <div class="plp-grid" id="plp-grid"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Nike, Inc. All Rights Reserved (demo page)</p>
+    </footer>
+
+    <script src="./football-products.js"></script>
+    <script src="./plp-render-football.js"></script>
+    <script>
+      // ===== UPDATE PRODUCT COUNT =====
+      document.addEventListener("DOMContentLoaded", function () {
+        const countEl = document.querySelector(".plp-count");
+        if (countEl && typeof PRODUCTS !== "undefined") {
+          countEl.textContent = "(" + PRODUCTS.length + ")";
+        }
+      });
+
+      // ===== CATEGORY CLICK =====
+      document.querySelectorAll(".filter-category-list li a").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelectorAll(".filter-category-list li").forEach((li) => li.classList.remove("active"));
+          this.closest("li").classList.add("active");
+        });
+      });
+      // ===== TOGGLE FILTER PANEL =====
+      function toggleFilter(groupId) {
+        const group = document.getElementById(groupId);
+        const body = group.querySelector(".filter-group-body");
+        const arrow = group.querySelector(".filter-arrow");
+        const isOpen = body.style.display === "block";
+        body.style.display = isOpen ? "none" : "block";
+        arrow.classList.toggle("fa-chevron-up", !isOpen);
+        arrow.classList.toggle("fa-chevron-down", isOpen);
+      }
+
+      function toggleMore(linkEl) {
+        const body = linkEl.closest(".filter-group-body");
+        const extra = body.querySelector(".filter-extra-items");
+        if (!extra) return;
+        const isHidden = extra.style.display === "none" || !extra.style.display;
+        extra.style.display = isHidden ? "block" : "none";
+        linkEl.textContent = isHidden ? "- Less" : "+ More";
+      }
+
+      // ===== HIDE/SHOW SIDEBAR =====
+      const toggleBtn = document.getElementById("toggle-filters-btn");
+      const sidebar = document.getElementById("plp-sidebar");
+      const plpBody = document.getElementById("plp-body");
+      let filtersVisible = true;
+      toggleBtn.addEventListener("click", () => {
+        filtersVisible = !filtersVisible;
+        sidebar.style.display = filtersVisible ? "" : "none";
+        plpBody.style.gridTemplateColumns = filtersVisible ? "280px 1fr" : "1fr";
+        toggleBtn.innerHTML = filtersVisible ? 'Hide Filters <i class="fa-solid fa-sliders"></i>' : 'Show Filters <i class="fa-solid fa-sliders"></i>';
+      });
+
+      // ===== COLOR SWATCH SELECT =====
+      document.querySelectorAll("#color-group .color-option").forEach((el) => {
+        el.addEventListener("click", () => el.classList.toggle("selected"));
+      });
+
+      // ===== SORT DROPDOWN =====
+      const sortDropdown = document.getElementById("sort-dropdown");
+      const sortToggleBtn = document.getElementById("sort-toggle-btn");
+      const sortMenu = document.getElementById("sort-menu");
+      const sortArrow = sortDropdown.querySelector(".sort-arrow");
+
+      sortToggleBtn.addEventListener("click", () => {
+        const isOpen = sortDropdown.classList.toggle("open");
+        sortArrow.classList.toggle("fa-chevron-up", isOpen);
+        sortArrow.classList.toggle("fa-chevron-down", !isOpen);
+      });
+
+      sortMenu.querySelectorAll(".plp-sort-option").forEach((option) => {
+        option.addEventListener("click", () => {
+          sortMenu.querySelectorAll(".plp-sort-option").forEach((o) => o.classList.remove("selected"));
+          option.classList.add("selected");
+          sortDropdown.classList.remove("open");
+          sortArrow.classList.remove("fa-chevron-up");
+          sortArrow.classList.add("fa-chevron-down");
+          window.PLP.renderList(window.PLP.sortProducts(window.PLP.PRODUCTS, option.dataset.value));
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!sortDropdown.contains(e.target)) {
+          sortDropdown.classList.remove("open");
+          sortArrow.classList.remove("fa-chevron-up");
+          sortArrow.classList.add("fa-chevron-down");
+        }
+      });
+    </script>
+  </body>
+</html>

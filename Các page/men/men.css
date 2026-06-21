@@ -1,0 +1,458 @@
+/* decor cho slider đầu tiên - grid 3 cột, không cuộn, giống ảnh mẫu */
+.first-slider-of-men {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  padding: 0 48px 48px;
+}
+
+.types-of-first-slider-of-men {
+  width: 100%;
+}
+.types-of-first-slider-of-men a {
+  text-decoration: none;
+  display: block;
+}
+.img-scroll-of-men {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+.content-on-pictures {
+  color: black;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.content-on-pictures p {
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 4px;
+}
+.content-on-pictures h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.shop-button {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.shop-button:hover {
+  background-color: #cacacb;
+  color: white;
+}
+.shop-button a {
+  color: white;
+  text-decoration: none;
+}
+
+/* === SHOP BY SPORT (giống mẫu ảnh) === */
+.shop-by-sport {
+  padding: 0 48px;
+  margin-bottom: 48px;
+}
+
+.shop-by-sport-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 24px 0 8px;
+}
+
+.shop-by-sport-title {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+
+.shop-by-sport-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shop-by-sport-track-wrapper {
+  overflow: hidden;
+}
+
+.shop-by-sport-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s ease;
+}
+
+.shop-by-sport-track .second-slider-item {
+  position: relative;
+  flex: 0 0 calc(33.333% - 11px);
+  width: auto;
+  margin: 0;
+}
+
+.shop-by-sport-track .second-slider-item img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+}
+
+.shop-by-sport-track .second-slider-item figcaption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+}
+
+.shop-by-sport-track .second-shop-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.shop-by-sport-track .second-shop-button a {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.shop-by-sport-track .second-shop-button:hover {
+  background-color: #e5e5e5;
+}
+
+/* decor slider thứ 2 */
+.second-slider-of-men {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+  gap: 0px;
+  padding: 0 10px;
+}
+.second-slider-item {
+  position: relative;
+  flex: 0 0 auto; /* giữ kích thước cố định khi scroll */
+  width: 400px; /* bạn có thể chỉnh theo ý */
+  margin: 0;
+  padding: 0;
+}
+.second-slider-item img {
+  width: 300px;
+  height: 300px;
+  display: block;
+}
+.second-slider-item figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 9px;
+}
+.second-shop-button {
+  display: inline-block;
+  padding: 10px 20px; /* khoảng cách trong nút */
+  background-color: white; /* nền trắng */
+  color: black; /* chữ đen */
+  border: 2px solid white; /* viền đen */
+  border-radius: 50px; /* bo tròn oval */
+  font-size: 1vw;
+  font-weight: bold;
+  text-decoration: none; /* bỏ gạch chân */
+  text-align: center;
+  cursor: pointer; /* hiện bàn tay khi hover */
+  transition: all 0.3s ease; /* hiệu ứng hover */
+}
+.second-shop-button a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 13px;
+}
+.second-shop-button:hover {
+  background-color: #cacacb;
+  color: white;
+}
+.content-on-pictures-of-second-slider {
+}
+h2 {
+  padding: 0 40px;
+  margin-top: 20px;
+}
+
+/* === SPOTLIGHT === */
+.spotlight {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+}
+.text-under-spotlight {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.text-under-spotlight p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0 40px 40px;
+  margin: 0;
+}
+.item {
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.item:hover {
+  transform: scale(1.05);
+}
+.item:hover img {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+.item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+.item span {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
+  line-height: 1.4;
+  padding: 0 4px;
+}
+
+/* === CATEGORY SUB-HEADER (Men / Shoes / Clothing / Gear) === */
+.category-subheader {
+  display: flex;
+  align-items: center;
+  padding: 16px 48px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.category-subheader h1 {
+  font-size: 20px;
+  font-weight: 50;
+}
+
+.category-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+}
+
+.category-links a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+}
+
+
+/* Trang Men: bỏ sticky của main-header, để category-subheader sticky thay vào đó */
+body.men-page .main-header {
+  position: relative;
+}
+
+.two-col-feature {
+  padding: 0 48px;
+  margin-bottom: 48px;
+}
+
+.two-col-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding: 24px 0 16px;
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.two-col-item {
+  position: relative;
+}
+
+.two-col-item img {
+  width: 100%;
+  height: 730px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.two-col-label {
+  position: absolute;
+  bottom: 100px;
+  left: 35px;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.two-col-btn {
+  position: absolute;
+  bottom: 40px;
+  left: 35px;
+  background: white;
+  color: black;
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-weight: 545;
+  font-size: 16px;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.two-col-btn:hover {
+  background:#c8c8c8;
+}
+
+.new-arrivals {
+  padding: 0 48px;
+  margin-bottom: 48px;
+}
+
+.new-arrivals-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 0 8px;
+}
+
+.new-arrivals-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h2 {
+  padding: 0 40px;
+  margin-top: 20px;
+}
+
+.new-arrivals-title,
+.shop-by-sport-title {
+  padding: 0;
+  margin: 0;
+}
+
+.new-arrivals-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.new-arrivals-shop {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  margin-right: 8px;
+}
+
+.arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-btn:hover {
+  background: #f5f5f5;
+}
+
+.new-arrivals-track-wrapper {
+  overflow: hidden;
+}
+
+.new-arrivals-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s ease;
+}
+
+.arrival-item {
+  flex: 0 0 calc(33.333% - 12px);
+  cursor: pointer;
+}
+
+.arrival-item .arrival-img-wrap,
+.arrival-item img {
+  transition: transform 0.3s ease;
+}
+
+.arrival-item:hover img {
+  transform: scale(1.03);
+}
+
+.arrival-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #f5f5f5;
+  display: block;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.arrival-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.arrival-type {
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 4px;
+}
+
+.arrival-price {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+}

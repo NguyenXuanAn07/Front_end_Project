@@ -410,43 +410,4 @@ setInterval(async function () {
   render();
 }, 10000);
 
-// ── DATA LAYER ──
-const ITEMS_PER_PAGE = 8;
 
-let allOrders = [];
-let currentFilter = "all";
-let currentSort = "newest";
-let currentSearch = "";
-let currentPage = 1;
-let editingId = null;
-
-//Lấy đơn hàng thật từ API
-async function loadOrder() {
-  try {
-    const response = await fetch("http://127.0.0.1:8000/cart/admin/orders");
-    const data = await response.json();
-
-    //Chuyển dữu liệu từ APi sang đúng format mà admin.js đang dùng
-    allOrders = data.map((p) => {
-      return {
-        id: "NK" + o.id,
-        product: o.product,
-        emoji: "👟",
-        size: "N/A",
-        color: "N/A",
-        qty: 1,
-        customer: o.customer,
-        email: o.email,
-        phone: o.phone || "",
-        address: o.address || "",
-        date: o.created_at,
-        price: o.total_amount,
-        status: o.status,
-        note: "",
-      };
-    });
-  } catch (error) {
-    alert("Lỗi tải đơn hàng:" + error);
-    allOrders = [];
-  }
-}

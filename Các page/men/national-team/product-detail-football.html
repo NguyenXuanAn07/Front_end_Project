@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail - Nike Football</title>
+    <link rel="stylesheet" href="./nike-football.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../head,foot/css/header.css" />
+  </head>
+  <body>
+    <!-- 1. Top Header -->
+    <header class="top-header">
+      <div class="jordan-logo">
+        <img src="../../head,foot/img/JORDAN-removebg-preview.png" alt="" />
+      </div>
+      <div class="top-nav-links">
+        <a href="#">Find a Store</a>
+        <span>|</span>
+        <a href="#">Help</a>
+        <span>|</span>
+        <a href="#">Join Us</a>
+        <span>|</span>
+        <a href="../../SignIn_SignUp/signin.html">Sign In</a>
+      </div>
+    </header>
+
+    <!-- 2. Main Header -->
+    <header class="main-header">
+      <a href="../../index.html" class="nike-logo">
+        <img src="../../head,foot/img/logo.png" alt="" />
+      </a>
+      <nav class="nav-menu">
+        <div class="nav-item"><a href="../../index.html">New &amp; Featured</a></div>
+        <div class="nav-item"><a href="../men.html">Men</a></div>
+        <div class="nav-item"><a href="../../women.html">Women</a></div>
+        <div class="nav-item"><a href="../../kids-type.html">Kids</a></div>
+        <div class="nav-item"><a href="./nike-football.html">Nike Football</a></div>
+        <div class="nav-item"><a href="../../sale-type.html">Sale</a></div>
+      </nav>
+      <div class="header-right">
+        <div class="search-container">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+        <i class="fa-regular fa-heart icon-btn"></i>
+        <i class="fa-regular fa-bag-shopping icon-btn"></i>
+      </div>
+    </header>
+
+    <!-- 3. Announcement Bar -->
+    <div class="announcement-bar">
+      <p>Free Standard Delivery &amp; 30-Day Free Returns <a href="#">Join Now</a> <a href="#">View Details</a></p>
+    </div>
+
+    <!-- 4. Breadcrumb -->
+    <nav class="pdp-breadcrumb" id="pdp-breadcrumb"></nav>
+
+    <!-- 5. PDP Content -->
+    <main id="pdp-content"></main>
+
+    <!-- 6. How Others Are Wearing It -->
+    <section class="pdp-ugc" id="pdp-ugc" style="display: none">
+      <h2>How Others Are Wearing It</h2>
+      <p>Upload your photo or mention @Nike on Instagram for a chance to be featured.</p>
+      <button class="pdp-ugc-upload-btn"><i class="fa-regular fa-image"></i> Upload Your Photo</button>
+    </section>
+
+    <!-- 7. Related Products -->
+    <section class="pdp-related" id="pdp-related" style="display: none">
+      <h2>You Might Also Like</h2>
+      <div class="pdp-related-grid" id="pdp-related-grid"></div>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Nike, Inc. All Rights Reserved (demo page)</p>
+    </footer>
+
+    <!-- Toast -->
+    <div class="pdp-toast" id="pdp-toast"></div>
+
+    <script src="./football-products.js"></script>
+    <script>
+      (function () {
+        function formatPrice(value) {
+          return value.toLocaleString("vi-VN") + "₫";
+        }
+
+        function getProductIdFromUrl() {
+          return new URLSearchParams(window.location.search).get("id");
+        }
+
+        function showToast(msg) {
+          const toast = document.getElementById("pdp-toast");
+          toast.textContent = msg;
+          toast.classList.add("show");
+          setTimeout(() => toast.classList.remove("show"), 2500);
+        }
+
+        function renderNotFound() {
+          document.getElementById("pdp-content").innerHTML = `
+            <div class="pdp-not-found">
+              <p>Product not found.</p>
+              <a href="./nike-football.html" style="color:#111;text-decoration:underline;margin-top:12px;display:inline-block;">← Back to National Team</a>
+            </div>`;
+        }
+
+        function renderBreadcrumb(product) {
+          document.getElementById("pdp-breadcrumb").innerHTML = `
+            <a href="./nike-football.html">Home</a>
+            <span>›</span>
+            <a href="./nike-football.html">Nike Football</a>
+            <span>›</span>
+            <a href="./nike-football.html">National Team</a>
+            <span>›</span>
+            <span style="color:#111">${product.name}</span>`;
+        }
+
+        function renderRelated(currentProduct) {
+          const related = PRODUCTS.filter((p) => p.id !== currentProduct.id);
+          if (related.length === 0) return;
+
+          const grid = document.getElementById("pdp-related-grid");
+          grid.innerHTML = related
+            .map(
+              (p) => `
+            <div class="pdp-related-card" data-id="${p.id}">
+              <div class="pdp-related-img">
+                <img src="${p.img}" alt="${p.name}" loading="lazy" />
+              </div>
+              ${p.badge ? `<p class="pdp-related-badge">${p.badge}</p>` : ""}
+              <p class="pdp-related-name">${p.name}</p>
+              <p class="pdp-related-type">${p.type}</p>
+              <p class="pdp-related-price">${formatPrice(p.price)}</p>
+            </div>
+          `,
+            )
+            .join("");
+
+          grid.querySelectorAll(".pdp-related-card").forEach((card) => {
+            card.addEventListener("click", () => {
+              window.location.href = `./product-detail-football.html?id=${card.dataset.id}`;
+            });
+          });
+
+          document.getElementById("pdp-related").style.display = "block";
+        }
+
+        function renderPDP(product) {
+          document.title = product.name + " – Nike Football";
+          renderBreadcrumb(product);
+
+          const thumbImgs = product.images && product.images.length > 0 ? product.images : [product.img];
+          let currentImgIndex = 0;
+
+          const badgeHtml = product.badge ? `<p class="pdp-badge">${product.recycled ? "Recycled Materials" : product.badge}</p>` : product.recycled ? `<p class="pdp-badge">Recycled Materials</p>` : "";
+
+          const disabledSizes = product.disabledSizes || [];
+          const sizeOptionsHtml = (product.sizes || [])
+            .map((s) => {
+              const isDisabled = disabledSizes.includes(s);
+              return `<div class="pdp-size-option ${isDisabled ? "disabled" : ""}" data-size="${s}">${s}</div>`;
+            })
+            .join("");
+
+          const allDisabled = (product.sizes || []).every((s) => disabledSizes.includes(s));
+
+          document.getElementById("pdp-content").innerHTML = `
+            <div class="pdp-main">
+              <!-- Thumbnails -->
+              <div class="pdp-thumbnails" id="pdp-thumbnails">
+                ${thumbImgs
+                  .map(
+                    (img, i) => `
+                  <div class="pdp-thumb ${i === 0 ? "active" : ""}" data-index="${i}">
+                    <img src="${img}" alt="${product.name} view ${i + 1}" loading="lazy" />
+                  </div>
+                `,
+                  )
+                  .join("")}
+              </div>
+
+              <!-- Main Image -->
+              <div class="pdp-main-img">
+                <img src="${product.img}" alt="${product.name}" id="pdp-hero-img" />
+                <div class="pdp-img-nav">
+                  <button id="img-prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+                  <button id="img-next" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Info Panel -->
+              <div class="pdp-info">
+                ${badgeHtml}
+                <h1 class="pdp-name">${product.name}</h1>
+                <p class="pdp-type">${product.type}</p>
+                <p class="pdp-price">${formatPrice(product.price)}</p>
+
+                <div class="pdp-size-header">
+                  <span class="pdp-size-label">Select Size</span>
+                  <button class="pdp-size-guide">
+                    <i class="fa-solid fa-arrows-left-right"></i> Size Guide
+                  </button>
+                </div>
+                <div class="pdp-size-grid" id="pdp-size-grid">
+                  ${sizeOptionsHtml}
+                </div>
+                <p class="pdp-size-error" id="pdp-size-error">Please select a size.</p>
+
+                <button class="pdp-add-bag" id="pdp-add-bag" ${allDisabled ? "disabled" : ""}>${allDisabled ? "Sold Out" : "Add to Bag"}</button>
+                <button class="pdp-favourite" id="pdp-fav">
+                  Favourite <i class="fa-regular fa-heart"></i>
+                </button>
+
+                ${product.promoExcluded ? `<p class="pdp-promo-exclusion">This product is excluded from site promotions and discounts.</p>` : ""}
+                ${product.recycled ? `<p class="pdp-recycled-box">This product is made from 100% recycled polyester fibres</p>` : ""}
+
+                <p class="pdp-description">${product.description || ""}</p>
+
+                <div class="pdp-specs-panel">
+                  <ul class="pdp-specs">
+                    ${product.colorName ? `<li>Colour Shown: ${product.colorName}</li>` : ""}
+                    ${product.styleCode ? `<li>Style: ${product.styleCode}</li>` : ""}
+                    ${product.origin ? `<li>Country/Region of Origin: ${product.origin}</li>` : ""}
+                  </ul>
+                </div>
+
+                <button class="pdp-view-details-link" id="pdp-view-details-btn">View Product Details</button>
+
+                <div class="pdp-accordion">
+                  <div class="pdp-accordion-item">
+                    <button class="pdp-accordion-header" id="acc-fit">
+                      <span>Size &amp; Fit</span>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pdp-accordion-body" id="acc-fit-body">
+                      <ul>
+                        ${product.sizeFitNote ? `<li>${product.sizeFitNote}</li>` : ""}
+                        ${product.fitType ? `<li>${product.fitType}</li>` : ""}
+                      </ul>
+                      <p><a href="#">Size Guide</a></p>
+                    </div>
+                  </div>
+
+                  <div class="pdp-accordion-item">
+                    <button class="pdp-accordion-header" id="acc-delivery">
+                      <span>Free Delivery and Returns</span>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pdp-accordion-body" id="acc-delivery-body">
+                      <p>Your order of ${formatPrice(5000000)} or more gets free standard delivery.</p>
+                      <ul>
+                        <li>Standard delivered 4-5 Business Days</li>
+                        <li>Express delivered 2-4 Business Days</li>
+                      </ul>
+                      <p>Orders are processed and delivered Monday-Friday (excluding public holidays)</p>
+                      <p>Nike Members enjoy <a href="#">free returns</a>.</p>
+                    </div>
+                  </div>
+
+                  ${
+                    product.recycled
+                      ? `
+                  <div class="pdp-accordion-item">
+                    <button class="pdp-accordion-header" id="acc-made">
+                      <span>How This Was Made</span>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pdp-accordion-body" id="acc-made-body">
+                      <ul>
+                        <li>The recycled polyester used in Nike products begins as recycled plastic bottles, which are cleaned, shredded into flakes and converted into pellets. From there, the pellets are spun into new, high-quality yarn used in our products, delivering peak performance with a lower impact on the environment.</li>
+                        <li>In addition to reducing waste, recycled polyester produces up to 30% lower carbon emissions than virgin polyester. Nike diverts an average of 1 billion plastic bottles annually from landfill and waterways.</li>
+                      </ul>
+                    </div>
+                  </div>`
+                      : ""
+                  }
+
+                  <div class="pdp-accordion-item">
+                    <button class="pdp-accordion-header" id="acc-reviews">
+                      <div class="pdp-accordion-header-inner">
+                        <span>Reviews (0)</span>
+                        <div class="pdp-stars">
+                          <i class="fa-regular fa-star"></i>
+                          <i class="fa-regular fa-star"></i>
+                          <i class="fa-regular fa-star"></i>
+                          <i class="fa-regular fa-star"></i>
+                          <i class="fa-regular fa-star"></i>
+                        </div>
+                      </div>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="pdp-accordion-body" id="acc-reviews-body">
+                      <div class="pdp-review-summary">
+                        <div class="pdp-stars">
+                          <i class="fa-regular fa-star"></i>
+                          <i class="fa-regular fa-star"></i>
+                          <i class="fa-regular fa-star"></i>
+                          <i class="fa-regular fa-star"></i>
+                          <i class="fa-regular fa-star"></i>
+                        </div>
+                        <span>No reviews</span>
+                      </div>
+                      <p>Have your say. Be the first to review the ${product.name}.</p>
+                      <button class="pdp-write-review-btn" id="pdp-write-review-btn">Write a review</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- View Product Details Modal -->
+            <div class="pdp-modal-overlay" id="pdp-modal-overlay">
+              <div class="pdp-modal">
+                <button class="pdp-modal-close" id="pdp-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                <div class="pdp-modal-header">
+                  <div class="pdp-modal-img">
+                    <img src="${product.img}" alt="${product.name}" />
+                  </div>
+                  <div>
+                    <p class="pdp-modal-name">${product.name}</p>
+                    <p class="pdp-modal-price">${formatPrice(product.price)}</p>
+                  </div>
+                </div>
+                <p class="pdp-modal-desc">${product.description || ""}</p>
+                <p class="pdp-modal-subtitle">Product details</p>
+                <ul class="pdp-specs">
+                  ${product.colorName ? `<li>Colour Shown: ${product.colorName}</li>` : ""}
+                  ${product.styleCode ? `<li>Style: ${product.styleCode}</li>` : ""}
+                  ${product.origin ? `<li>Country/Region of Origin: ${product.origin}</li>` : ""}
+                </ul>
+              </div>
+            </div>`;
+
+          /* Thumbnail navigation */
+          const thumbEls = document.querySelectorAll(".pdp-thumb");
+          const heroImg = document.getElementById("pdp-hero-img");
+
+          function setActiveThumb(index) {
+            currentImgIndex = index;
+            thumbEls.forEach((t) => t.classList.remove("active"));
+            thumbEls[index].classList.add("active");
+            heroImg.style.opacity = "0";
+            setTimeout(() => {
+              heroImg.src = thumbImgs[index];
+              heroImg.style.opacity = "1";
+            }, 150);
+          }
+
+          thumbEls.forEach((thumb, i) => thumb.addEventListener("click", () => setActiveThumb(i)));
+
+          document.getElementById("img-prev").addEventListener("click", () => {
+            setActiveThumb((currentImgIndex - 1 + thumbImgs.length) % thumbImgs.length);
+          });
+          document.getElementById("img-next").addEventListener("click", () => {
+            setActiveThumb((currentImgIndex + 1) % thumbImgs.length);
+          });
+
+          /* Size selection */
+          document
+            .getElementById("pdp-size-grid")
+            .querySelectorAll(".pdp-size-option:not(.disabled)")
+            .forEach((el) => {
+              el.addEventListener("click", () => {
+                document.querySelectorAll(".pdp-size-option").forEach((s) => s.classList.remove("selected"));
+                el.classList.add("selected");
+                document.getElementById("pdp-size-error").classList.remove("visible");
+              });
+            });
+
+          /* Add to Bag */
+          const addBagBtn = document.getElementById("pdp-add-bag");
+          if (!allDisabled) {
+            addBagBtn.addEventListener("click", () => {
+              const selected = document.querySelector(".pdp-size-option.selected");
+              if (!selected) {
+                document.getElementById("pdp-size-error").classList.add("visible");
+                document.getElementById("pdp-size-grid").scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+              }
+              showToast(`✓ Added to bag: ${product.name} – Size ${selected.dataset.size}`);
+            });
+          }
+
+          /* Favourite */
+          const favBtn = document.getElementById("pdp-fav");
+          let isFav = false;
+          favBtn.addEventListener("click", () => {
+            isFav = !isFav;
+            const icon = favBtn.querySelector("i");
+            icon.className = isFav ? "fa-solid fa-heart" : "fa-regular fa-heart";
+            icon.style.color = isFav ? "#e00000" : "";
+            showToast(isFav ? "♡ Added to Favourites" : "Removed from Favourites");
+          });
+
+          /* View Product Details modal */
+          const detailsBtn = document.getElementById("pdp-view-details-btn");
+          const modalOverlay = document.getElementById("pdp-modal-overlay");
+          const modalClose = document.getElementById("pdp-modal-close");
+
+          detailsBtn.addEventListener("click", () => modalOverlay.classList.add("open"));
+          modalClose.addEventListener("click", () => modalOverlay.classList.remove("open"));
+          modalOverlay.addEventListener("click", (e) => {
+            if (e.target === modalOverlay) modalOverlay.classList.remove("open");
+          });
+
+          /* Accordion */
+          ["acc-fit", "acc-delivery", "acc-made", "acc-reviews"].forEach((id) => {
+            const header = document.getElementById(id);
+            if (!header) return;
+            const body = document.getElementById(id + "-body");
+            header.addEventListener("click", () => {
+              const isOpen = body.classList.toggle("open");
+              const icon = header.querySelector("i.fa-chevron-down, i.fa-chevron-up");
+              icon.className = isOpen ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down";
+            });
+          });
+        }
+
+        const id = getProductIdFromUrl();
+        const product = typeof PRODUCTS !== "undefined" && PRODUCTS.find((p) => p.id === id);
+
+        if (!product) {
+          renderNotFound();
+        } else {
+          renderPDP(product);
+          document.getElementById("pdp-ugc").style.display = "block";
+          renderRelated(product);
+        }
+      })();
+    </script>
+  </body>
+</html>

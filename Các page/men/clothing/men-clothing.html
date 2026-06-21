@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men's Clothing</title>
+    <link rel="stylesheet" href="../../head,foot/css/header.css" />
+    <link rel="stylesheet" href="../../head,foot/css/anouncement_bar.css" />
+    <link rel="stylesheet" href="./men-clothing.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="icon" href="../../head,foot/img/logotronnike.png" />
+  </head>
+  <body>
+    <!-- 1. Top Header -->
+    <header class="top-header">
+      <div class="jordan-logo">
+        <img src="../../head,foot/img/JORDAN-removebg-preview.png" alt="" />
+      </div>
+      <div class="top-nav-links">
+        <a href="#">Find a Store</a>
+        <span>|</span>
+        <a href="#">Help</a>
+        <span>|</span>
+        <a href="#">Join Us</a>
+        <span>|</span>
+        <a href="../../SignIn_SignUp/signin.html">Sign In</a>
+      </div>
+    </header>
+
+    <!-- 2. Main Header -->
+    <header class="main-header">
+      <a href="../../index.html" class="nike-logo">
+        <img src="../../head,foot/img/logo.png" alt="" />
+      </a>
+      <nav class="nav-menu">
+        <div class="nav-item"><a href="">New &amp; Featured</a></div>
+        <div class="nav-item"><a href="../men.html">Men</a></div>
+        <div class="nav-item"><a href="../../women.html">Women</a></div>
+        <div class="nav-item"><a href="../../kids-type.html">Kids</a></div>
+        <div class="nav-item"><a href="">Nike Football</a></div>
+        <div class="nav-item"><a href="../../sale-type.html">Sale</a></div>
+      </nav>
+      <div class="header-right">
+        <div class="search-container">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+        <i class="fa-regular fa-heart icon-btn"></i>
+        <i class="fa-regular fa-bag-shopping icon-btn"></i>
+      </div>
+    </header>
+
+    <!-- 3. Announcement Bar -->
+    <div class="announcement-bar">
+      <p>Free Standard Delivery &amp; 30-Day Free Returns <a href="#">Join Now</a> <a href="#">View Details</a></p>
+    </div>
+
+    <!-- 4. Main Content -->
+    <main class="plp-main">
+      <div class="plp-top-bar">
+        <h1 class="plp-title">Men's Clothing <span class="plp-count">(1348)</span></h1>
+        <div class="plp-controls">
+          <button class="plp-hide-filters-btn" id="toggle-filters-btn">Hide Filters <i class="fa-solid fa-sliders"></i></button>
+          <div class="plp-sort" id="sort-dropdown">
+            <button class="plp-sort-toggle" id="sort-toggle-btn">
+              <span>Sort By</span>
+              <i class="fa-solid fa-chevron-down sort-arrow"></i>
+            </button>
+            <ul class="plp-sort-menu" id="sort-menu">
+              <li class="plp-sort-option selected" data-value="featured">Featured</li>
+              <li class="plp-sort-option" data-value="newest">Newest</li>
+              <li class="plp-sort-option" data-value="price-high-low">Price: High-Low</li>
+              <li class="plp-sort-option" data-value="price-low-high">Price: Low-High</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="plp-body" id="plp-body">
+        <!-- Sidebar Filters -->
+        <aside class="plp-sidebar" id="plp-sidebar">
+          <div class="filter-section">
+            <ul class="filter-category-list" id="category-list">
+              <li><a href="#" data-category="tops">Tops &amp; T-Shirts</a></li>
+              <li><a href="#" data-category="hoodies">Hoodies &amp; Sweatshirts</a></li>
+              <li><a href="#" data-category="jackets">Jackets</a></li>
+              <li><a href="#" data-category="trousers">Trousers &amp; Tights</a></li>
+              <li><a href="#" data-category="tracksuits">Tracksuits</a></li>
+              <li><a href="#" data-category="shorts">Shorts</a></li>
+              <li><a href="#" data-category="compression">Compression and Base Layer</a></li>
+              <li><a href="#" data-category="socks">Socks</a></li>
+            </ul>
+          </div>
+
+          <div class="filter-divider"></div>
+
+          <div class="filter-section">
+            <!-- Gender -->
+            <div class="filter-group" id="gender-group">
+              <div class="filter-group-header" onclick="toggleFilter('gender-group')">
+                <span>Gender</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Men's</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Women's</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Unisex</label>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Shop By Price -->
+            <div class="filter-group" id="price-group">
+              <div class="filter-group-header" onclick="toggleFilter('price-group')">
+                <span>Shop By Price</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Under 1,000,000₫</label>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Sale & Offers -->
+            <div class="filter-group" id="sale-group">
+              <div class="filter-group-header" onclick="toggleFilter('sale-group')">
+                <span>Sale &amp; Offers</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Sale</label>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Sizing -->
+            <div class="filter-group" id="sizing-group">
+              <div class="filter-group-header" onclick="toggleFilter('sizing-group')">
+                <span>Sizing</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Asia Sizing</label>
+                <label class="filter-checkbox"><input type="checkbox" /> US Sizing</label>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Size -->
+            <div class="filter-group" id="size-group">
+              <div class="filter-group-header" onclick="toggleFilter('size-group')">
+                <span>Size</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <div class="size-grid">
+                  <div class="size-option">XS</div>
+                  <div class="size-option">S</div>
+                  <div class="size-option">M</div>
+                  <div class="size-option">L</div>
+                  <div class="size-option">XL</div>
+                  <div class="size-option">XXL</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Sports -->
+            <div class="filter-group" id="sports-group">
+              <div class="filter-group-header" onclick="toggleFilter('sports-group')">
+                <span>Sports</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Lifestyle</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Running</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Football</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Training &amp; Gym</label>
+                <div class="filter-extra-items">
+                  <label class="filter-checkbox"><input type="checkbox" /> Yoga</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Basketball</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Baseball</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Golf</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Skateboarding</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Tennis</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Outdoor</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Volleyball</label>
+                </div>
+                <span class="filter-more-link" onclick="toggleMore(this)">+ More</span>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Color -->
+            <div class="filter-group" id="color-group">
+              <div class="filter-group-header" onclick="toggleFilter('color-group')">
+                <span>Color</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <div class="color-grid">
+                  <div class="color-option"><span class="color-swatch" style="background: #111"></span><span>Black</span></div>
+                  <div class="color-option"><span class="color-swatch" style="background: #1e88e5"></span><span>Blue</span></div>
+                  <div class="color-option"><span class="color-swatch" style="background: #7b4b2a"></span><span>Brown</span></div>
+                  <div class="color-option"><span class="color-swatch" style="background: #5aa02c"></span><span>Green</span></div>
+                  <div class="color-option"><span class="color-swatch" style="background: #9e9e9e"></span><span>Grey</span></div>
+                  <div class="color-option"><span class="color-swatch swatch-multi"></span><span>Multi-Colour</span></div>
+                  <div class="color-option"><span class="color-swatch" style="background: #f4511e"></span><span>Orange</span></div>
+                  <div class="color-option"><span class="color-swatch" style="background: #f48fb1"></span><span>Pink</span></div>
+                  <div class="color-option"><span class="color-swatch" style="background: #6a1b9a"></span><span>Purple</span></div>
+                  <div class="color-option"><span class="color-swatch" style="background: #e53935"></span><span>Red</span></div>
+                  <div class="color-option"><span class="color-swatch swatch-white" style="background: #fff"></span><span>White</span></div>
+                  <div class="color-option" style="opacity: 0.4; pointer-events: none"><span class="color-swatch" style="background: #fdd835"></span><span>Yellow</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Features -->
+            <div class="filter-group" id="features-group">
+              <div class="filter-group-header" onclick="toggleFilter('features-group')">
+                <span>Features</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Side vents</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Reflective Design Details</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Packable Hood</label>
+                <label class="filter-checkbox"><input type="checkbox" /> 2-Way Zip</label>
+                <div class="filter-extra-items">
+                  <label class="filter-checkbox"><input type="checkbox" /> 4-way stretch</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> 2-way stretch</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Drawcord</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Racerback</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Front Zip</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Adjustable Hood</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Anti-Odour Fabric</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Breathable</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Convertible</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Hooded</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Insulated</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Packable</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Pockets</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Reflective</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Storm Flap</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Thumbholes</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> UV-Protective</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Water-resistant</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Waterproof</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Wind-resistant</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Zip Garage</label>
+                </div>
+                <span class="filter-more-link" onclick="toggleMore(this)">+ More</span>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Fit -->
+            <div class="filter-group" id="fit-group">
+              <div class="filter-group-header" onclick="toggleFilter('fit-group')">
+                <span>Fit</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Oversized</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Loose</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Standard</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Slim</label>
+                <div class="filter-extra-items">
+                  <label class="filter-checkbox"><input type="checkbox" /> Tight</label>
+                </div>
+                <span class="filter-more-link" onclick="toggleMore(this)">+ More</span>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Brand -->
+            <div class="filter-group" id="brand-group">
+              <div class="filter-group-header" onclick="toggleFilter('brand-group')">
+                <span>Brand</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Nike Sportswear</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Jordan</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Kobe</label>
+                <label class="filter-checkbox"><input type="checkbox" /> NikeLab</label>
+                <div class="filter-extra-items">
+                  <label class="filter-checkbox"><input type="checkbox" /> ACG</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Nike Pro</label>
+                </div>
+                <span class="filter-more-link" onclick="toggleMore(this)">+ More</span>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Material -->
+            <div class="filter-group" id="material-group">
+              <div class="filter-group-header" onclick="toggleFilter('material-group')">
+                <span>Material</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Fleece</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Tech Fleece</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Recycled Materials</label>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Technology -->
+            <div class="filter-group" id="technology-group">
+              <div class="filter-group-header" onclick="toggleFilter('technology-group')">
+                <span>Technology</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Dri-FIT</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Dri-FIT ADV</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Storm-FIT</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Storm-FIT ADV</label>
+                <div class="filter-extra-items">
+                  <label class="filter-checkbox"><input type="checkbox" /> Therma-FIT</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Therma-FIT ADV</label>
+                  <label class="filter-checkbox"><input type="checkbox" /> Nike Aero-FIT</label>
+                </div>
+                <span class="filter-more-link" onclick="toggleMore(this)">+ More</span>
+              </div>
+            </div>
+
+            <div class="filter-divider"></div>
+
+            <!-- Sleeve Length -->
+            <div class="filter-group" id="sleeve-group">
+              <div class="filter-group-header" onclick="toggleFilter('sleeve-group')">
+                <span>Sleeve Length</span>
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+              </div>
+              <div class="filter-group-body" style="display: none">
+                <label class="filter-checkbox"><input type="checkbox" /> Short-Sleeve</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Long-Sleeve</label>
+                <label class="filter-checkbox"><input type="checkbox" /> Sleeveless/Tank</label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <div class="plp-grid" id="plp-grid"></div>
+      </div>
+    </main>
+
+    <!-- 5. Footer -->
+    <footer class="footer">
+      <div class="footer-col">
+        <ul>
+          <li>About Nike</li>
+          <li>Careers</li>
+          <li>Investors</li>
+          <li>Sustainability</li>
+        </ul>
+      </div>
+      <div class="footer-col" style="text-align: right">
+        <div class="social_link">
+          <i class="fa-brands fa-facebook icon-btn"></i>
+          <i class="fa-brands fa-instagram icon-btn"></i>
+          <i class="fa-brands fa-twitter icon-btn"></i>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./clothing-products.js"></script>
+    <script src="./plp-render-clothing.js"></script>
+    <script>
+      // ===== FILTER STATE =====
+      const filterState = {
+        category: null,
+        genders: [],
+        prices: [],
+        sizes: [],
+        colors: [],
+        brands: [],
+        materials: [],
+        technologies: [],
+        fits: [],
+        sleeveLengths: [],
+        sports: [],
+        sortValue: "featured",
+      };
+
+      // ===== APPLY FILTERS =====
+      function applyFilters() {
+        let list = [...window.PLP.PRODUCTS];
+
+        if (filterState.category) list = list.filter((p) => p.category === filterState.category);
+        if (filterState.genders.length) list = list.filter((p) => filterState.genders.includes(p.gender));
+        if (filterState.prices.length) {
+          list = list.filter((p) =>
+            filterState.prices.some((range) => {
+              if (range === "under1m") return p.price < 1000000;
+              if (range === "1m-2m") return p.price >= 1000000 && p.price <= 2000000;
+              if (range === "2m-5m") return p.price > 2000000 && p.price <= 4999999;
+              if (range === "over5m") return p.price >= 5000000;
+              return false;
+            }),
+          );
+        }
+        if (filterState.sizes.length) list = list.filter((p) => p.sizes && filterState.sizes.some((s) => p.sizes.includes(s)));
+        if (filterState.colors.length) list = list.filter((p) => p.colors && filterState.colors.some((c) => p.colors.includes(c)));
+        if (filterState.brands.length) list = list.filter((p) => filterState.brands.includes(p.brand));
+        if (filterState.materials.length) list = list.filter((p) => filterState.materials.includes(p.material));
+        if (filterState.technologies.length) list = list.filter((p) => filterState.technologies.includes(p.technology));
+        if (filterState.fits.length) list = list.filter((p) => filterState.fits.includes(p.fit));
+        if (filterState.sleeveLengths.length) list = list.filter((p) => filterState.sleeveLengths.includes(p.sleeveLength));
+        if (filterState.sports.length) list = list.filter((p) => filterState.sports.includes(p.sport));
+
+        list = window.PLP.sortProducts(list, filterState.sortValue);
+        window.PLP._currentList = list;
+        window.PLP.renderList(list);
+
+        const plpTitleEl = document.querySelector(".plp-title");
+        const catLink = filterState.category ? document.querySelector(`#category-list a[data-category="${filterState.category}"]`) : null;
+        plpTitleEl.firstChild.textContent = catLink ? catLink.textContent + " " : "Men's Clothing ";
+
+        updateFilterBadge("gender-group", filterState.genders.length);
+        updateFilterBadge("price-group", filterState.prices.length);
+        updateFilterBadge("size-group", filterState.sizes.length);
+        updateFilterBadge("color-group", filterState.colors.length);
+        updateFilterBadge("brand-group", filterState.brands.length);
+        updateFilterBadge("material-group", filterState.materials.length);
+        updateFilterBadge("technology-group", filterState.technologies.length);
+        updateFilterBadge("fit-group", filterState.fits.length);
+        updateFilterBadge("sleeve-group", filterState.sleeveLengths.length);
+        updateFilterBadge("sports-group", filterState.sports.length);
+      }
+
+      function updateFilterBadge(groupId, count) {
+        const group = document.getElementById(groupId);
+        if (!group) return;
+        const header = group.querySelector(".filter-group-header span");
+        if (!header) return;
+        const existing = header.querySelector(".filter-active-count");
+        if (count > 0) {
+          if (existing) existing.textContent = `(${count})`;
+          else header.insertAdjacentHTML("beforeend", ` <span class="filter-active-count">(${count})</span>`);
+        } else if (existing) existing.remove();
+      }
+
+      function bindCheckboxGroup(selector, stateArray, valueMap) {
+        document.querySelectorAll(selector).forEach((cb) => {
+          const label = cb.parentElement.textContent.trim();
+          const val = valueMap
+            ? valueMap[label]
+            : label
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/[^a-z0-9-]/g, "");
+          if (!val) return;
+          if (cb.checked && !stateArray.includes(val)) stateArray.push(val);
+          cb.addEventListener("change", () => {
+            if (cb.checked) {
+              if (!stateArray.includes(val)) stateArray.push(val);
+            } else {
+              const idx = stateArray.indexOf(val);
+              if (idx !== -1) stateArray.splice(idx, 1);
+            }
+            applyFilters();
+          });
+        });
+      }
+
+      // ===== TOGGLE FILTER PANEL =====
+      function toggleFilter(groupId) {
+        const group = document.getElementById(groupId);
+        const body = group.querySelector(".filter-group-body");
+        const arrow = group.querySelector(".filter-arrow");
+        const isOpen = body.style.display !== "none";
+        body.style.display = isOpen ? "none" : "block";
+        arrow.classList.toggle("fa-chevron-up", !isOpen);
+        arrow.classList.toggle("fa-chevron-down", isOpen);
+      }
+
+      function toggleMore(linkEl) {
+        const body = linkEl.closest(".filter-group-body");
+        const extra = body.querySelector(".filter-extra-items");
+        if (!extra) return;
+        const isHidden = extra.style.display === "none" || !extra.style.display;
+        extra.style.display = isHidden ? "block" : "none";
+        linkEl.textContent = isHidden ? "- Less" : "+ More";
+      }
+
+      // ===== HIDE/SHOW SIDEBAR =====
+      const toggleBtn = document.getElementById("toggle-filters-btn");
+      const sidebar = document.getElementById("plp-sidebar");
+      const plpBody = document.getElementById("plp-body");
+      let filtersVisible = true;
+      toggleBtn.addEventListener("click", () => {
+        filtersVisible = !filtersVisible;
+        sidebar.style.display = filtersVisible ? "block" : "none";
+        plpBody.style.gridTemplateColumns = filtersVisible ? "240px 1fr" : "1fr";
+        toggleBtn.innerHTML = filtersVisible ? 'Hide Filters <i class="fa-solid fa-sliders"></i>' : 'Show Filters <i class="fa-solid fa-sliders"></i>';
+      });
+
+      // ===== CATEGORY LINKS =====
+      const categoryLinks = document.querySelectorAll("#category-list a");
+      categoryLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const isAlreadyActive = link.parentElement.classList.contains("active");
+          categoryLinks.forEach((a) => a.parentElement.classList.remove("active"));
+          filterState.category = isAlreadyActive ? null : link.dataset.category;
+          if (!isAlreadyActive) link.parentElement.classList.add("active");
+          applyFilters();
+        });
+      });
+
+      // ===== GENDER =====
+      bindCheckboxGroup("#gender-group .filter-checkbox input[type='checkbox']", filterState.genders, { "Men's": "men", "Women's": "women", Unisex: "unisex" });
+
+      // ===== PRICE =====
+      bindCheckboxGroup("#price-group .filter-checkbox input[type='checkbox']", filterState.prices, {
+        "Under 1,000,000₫": "under1m",
+        "1,000,000₫ – 2,000,000₫": "1m-2m",
+        "2,000,001₫ – 4,999,999₫": "2m-5m",
+        "Over 5,000,000₫": "over5m",
+      });
+
+      // ===== SIZE (grid click) =====
+      document.querySelectorAll("#size-group .size-option").forEach((el) => {
+        el.addEventListener("click", () => {
+          el.classList.toggle("selected");
+          const size = el.textContent.trim();
+          if (el.classList.contains("selected")) {
+            if (!filterState.sizes.includes(size)) filterState.sizes.push(size);
+          } else {
+            filterState.sizes = filterState.sizes.filter((s) => s !== size);
+          }
+          applyFilters();
+        });
+      });
+
+      // ===== COLOR =====
+      document.querySelectorAll("#color-group .color-option").forEach((el) => {
+        el.addEventListener("click", () => {
+          el.classList.toggle("selected");
+          const colorName = el.querySelector("span:last-child").textContent.trim().toLowerCase().replace(/\s+/g, "-");
+          if (el.classList.contains("selected")) {
+            if (!filterState.colors.includes(colorName)) filterState.colors.push(colorName);
+          } else {
+            filterState.colors = filterState.colors.filter((c) => c !== colorName);
+          }
+          applyFilters();
+        });
+      });
+
+      // ===== BRAND =====
+      bindCheckboxGroup("#brand-group .filter-checkbox input[type='checkbox']", filterState.brands, {
+        "Nike Sportswear": "nike-sportswear",
+        Jordan: "jordan",
+        Kobe: "kobe",
+        NikeLab: "nikelab",
+        ACG: "acg",
+        "Nike Pro": "nike-pro",
+      });
+
+      // ===== MATERIAL =====
+      bindCheckboxGroup("#material-group .filter-checkbox input[type='checkbox']", filterState.materials, {
+        Fleece: "fleece",
+        "Tech Fleece": "tech-fleece",
+        "Recycled Materials": "recycled-materials",
+      });
+
+      // ===== TECHNOLOGY =====
+      bindCheckboxGroup("#technology-group .filter-checkbox input[type='checkbox']", filterState.technologies, {
+        "Dri-FIT": "dri-fit",
+        "Dri-FIT ADV": "dri-fit-adv",
+        "Storm-FIT": "storm-fit",
+        "Storm-FIT ADV": "storm-fit-adv",
+        "Therma-FIT": "therma-fit",
+        "Therma-FIT ADV": "therma-fit-adv",
+        "Nike Aero-FIT": "nike-aero-fit",
+      });
+
+      // ===== FIT =====
+      bindCheckboxGroup("#fit-group .filter-checkbox input[type='checkbox']", filterState.fits, {
+        Oversized: "oversized",
+        Loose: "loose",
+        Standard: "standard",
+        Slim: "slim",
+        Tight: "tight",
+      });
+
+      // ===== SLEEVE LENGTH =====
+      bindCheckboxGroup("#sleeve-group .filter-checkbox input[type='checkbox']", filterState.sleeveLengths, {
+        "Short-Sleeve": "short-sleeve",
+        "Long-Sleeve": "long-sleeve",
+        "Sleeveless/Tank": "sleeveless-tank",
+      });
+
+      // ===== SPORTS =====
+      bindCheckboxGroup("#sports-group .filter-checkbox input[type='checkbox']", filterState.sports, {
+        Lifestyle: "lifestyle",
+        Running: "running",
+        Football: "football",
+        "Training & Gym": "training-gym",
+        Yoga: "yoga",
+        Basketball: "basketball",
+        Baseball: "baseball",
+        Golf: "golf",
+        Skateboarding: "skateboarding",
+        Tennis: "tennis",
+        Outdoor: "outdoor",
+        Volleyball: "volleyball",
+      });
+
+      // ===== SORT DROPDOWN =====
+      const sortDropdown = document.getElementById("sort-dropdown");
+      const sortToggleBtn = document.getElementById("sort-toggle-btn");
+      const sortMenu = document.getElementById("sort-menu");
+      const sortArrow = sortDropdown.querySelector(".sort-arrow");
+
+      sortToggleBtn.addEventListener("click", () => {
+        const isOpen = sortDropdown.classList.toggle("open");
+        sortArrow.classList.toggle("fa-chevron-up", isOpen);
+        sortArrow.classList.toggle("fa-chevron-down", !isOpen);
+      });
+
+      sortMenu.querySelectorAll(".plp-sort-option").forEach((option) => {
+        option.addEventListener("click", () => {
+          sortMenu.querySelectorAll(".plp-sort-option").forEach((o) => o.classList.remove("selected"));
+          option.classList.add("selected");
+          sortDropdown.classList.remove("open");
+          sortArrow.classList.remove("fa-chevron-up");
+          sortArrow.classList.add("fa-chevron-down");
+          filterState.sortValue = option.dataset.value;
+          applyFilters();
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!sortDropdown.contains(e.target)) {
+          sortDropdown.classList.remove("open");
+          sortArrow.classList.remove("fa-chevron-up");
+          sortArrow.classList.add("fa-chevron-down");
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        applyFilters();
+      });
+    </script>
+  </body>
+</html>

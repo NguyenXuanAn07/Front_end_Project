@@ -1,29 +1,30 @@
 <!doctype html>
-<html lang="vie">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Women</title>
-    <link rel="stylesheet" href="css-cho-page/women-type.css" />
-    <link rel="stylesheet" href="head,foot/css/header.css">
+    <link rel="stylesheet" href="./css-cho-page/women.css" />
+    <link rel="stylesheet" href="./head,foot/css/header.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="icon" href="head,foot/img/logotronnike.png" />
-    <link rel="stylesheet" href="head,foot/css/anouncement_bar.css" />
-    <link rel="stylesheet" href="head,foot/css/banner.css" />
-    <link rel="stylesheet" href="css-cho-page/phần-trên-footer.css">
+    <link rel="icon" href="./head,foot/img/logotronnike.png" />
+    <link rel="stylesheet" href="./head,foot/css/anouncement_bar.css" />
+    <link rel="stylesheet" href="./head,foot/css/banner.css" />
+    <link rel="stylesheet" href="./css-cho-page/splotlight.css" />
+    <link rel="stylesheet" href="./css-cho-page/women-subnav.css" />
   </head>
   <body>
-   <!-- 1. Top Header -->
+    <!-- 1. Top Header -->
     <header class="top-header">
       <div class="jordan-logo">
-        <img src="head,foot/img/JORDAN-removebg-preview.png" alt="" />
+        <img src="./head,foot/img/JORDAN-removebg-preview.png" alt="" />
       </div>
       <div class="top-nav-links">
         <a href="#">Find a Store</a>
         <span>|</span>
         <a href="#">Help</a>
         <span>|</span>
-        <a href="#">Join Us</a>
+        <a href="./SignIn_SignUp/signup.html">Join Us</a>
         <span>|</span>
         <a href="./SignIn_SignUp/signin.html">Sign In</a>
       </div>
@@ -32,8 +33,8 @@
     <!-- 2. Main Header -->
     <header class="main-header">
       <!-- Logo -->
-      <a href="#" class="nike-logo">
-        <img src="head,foot/img/logo.png" alt="" />
+      <a href="./index.html" class="nike-logo">
+        <img src="./head,foot/img/logo.png" alt="" />
       </a>
 
       <!-- Main Nav -->
@@ -100,7 +101,7 @@
           </div>
         </div>
         <div class="nav-item">
-          <a href="men-type.html">Men</a>
+          <a href="../men/men.html">Men</a>
           <div class="mega-menu">
             <div class="mega-column">
               <h4>Featured</h4>
@@ -168,7 +169,7 @@
           </div>
         </div>
         <div class="nav-item">
-          <a href="women-type.html">Women</a>
+          <a href="women.html">Women</a>
           <div class="mega-menu">
             <div class="mega-column">
               <h4>Featured</h4>
@@ -239,7 +240,7 @@
           </div>
         </div>
         <div class="nav-item">
-          <a href="kids-type.html">Kids</a>
+          <a href="./kids-type.html">Kids</a>
           <div class="mega-menu">
             <div class="mega-column">
               <h4>Featured</h4>
@@ -305,7 +306,7 @@
           </div>
         </div>
         <div class="nav-item">
-          <a href="sale-type.html">Sales</a>
+          <a href="./sale-type.html">Sales</a>
           <div class="mega-menu">
             <div class="mega-column">
               <h4>Sale & Offers</h4>
@@ -370,13 +371,22 @@
       <a href="#">Join Now View Details</a>
     </div>
 
-    <!-- 4. Banner Slide-show -->
+    <!-- 4. Women Sub Navigation Bar (sticky, dính dưới main-header) -->
+    <nav class="women-subnav">
+      <span class="subnav-title">Women</span>
+      <ul class="subnav-links">
+        <li><a href="../men/men-shoes.html">Shoes</a></li>
+        <li><a href="../men/clothing/men-clothing.html">Clothing</a></li>
+        <li><a href="../men/gear/gear.html">Pants &amp; Leggings</a></li>
+        <li><a href="../men/men-shoes.html">Sports Bras</a></li>
+      </ul>
+    </nav>
+
+    <!-- 5. Banner Slide-show -->
     <div class="slider-container">
-      <!-- Slide 1: Video -->
       <div class="slide active">
-        <!-- Thay source video thật của bạn vào đây -->
         <video class="slide-bg" autoplay muted loop playsinline>
-          <source src="head,foot/img/videonike.mp4" type="video/mp4" />
+          <source src="./head,foot/img/videonike.mp4" type="video/mp4" />
         </video>
         <div class="slide-content">
           <h1>
@@ -391,186 +401,238 @@
         </div>
       </div>
     </div>
-    <div class="trending">
-      <h2>Trending</h2>
-      <div class="grid-container" style="margin-bottom: 40px;">
-      <figure style="position: relative; inline-block;">
-        <img
-          src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/h_912,c_limit/78bfa978-60f9-41c8-a487-173c84c987ab/women-s-shoes-clothing-accessories.png"
-          alt=""
-        />
-        <figcaption
-          style="
-            position: absolute;
-            bottom: 10px;
-            left: 20px;
-            font-size: 18px;
-            color: white;
-          "
-        >
-          <div class="content-on-pictures">
-            <p>Race Ready</p>
-            <h3>Nike Fast Pack</h3>
-          </div>
-          <div class="shop-button">
-            <a href="">Shop</a>
-          </div>
-        </figcaption>
-      </figure>
-      <figure style="position: relative; inline-block;">
-        <img
-          src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/h_1048,c_limit/e26d6d88-7124-4cae-9e0c-a65258a11b1b/women-s-shoes-clothing-accessories.png"
-          alt=""
-        />
-        <figcaption
-          style="
-            position: absolute;
-            bottom: 10px;
-            left: 20px;
-            font-size: 18px;
-            color: white;
-          "
-        >
-          <div class="content-on-pictures">
-            <p>'Victory Dance'</p>
-            <h3>Jordan Heir Series 2</h3>
-          </div>
-          <div class="shop-button">
-            <a href="">Shop</a>
-          </div>
-        </figcaption>
-      </figure>
-    </div>
-    <div class="shop-by-color">
-      <h2>Shop by Color</h2>
-      <div class="first-slider-of-women" style="margin-top: 40px;">
-        <!-- Item 1 -->
-        <div id="type1" class="types-of-first-slider-of-women">
-          <a href="#type1">
-            <img
-              id="img-scroll-of-women"
-              src="https://static.nike.com/a/images/f_auto/dpr_1.6,cs_srgb/h_589,c_limit/83aa1032-625f-4426-9df1-0cb4fc325c6f/image.png"
-              alt=""
-            />
-            <div class="content-on-pictures2">
-              <h3>Sapphire Blue</h3>
-            </div>
-          </a>
-        </div>
 
-        <!-- Item 2 -->
-        <div id="type2" class="types-of-first-slider-of-women">
-          <a href="#type2">
-            <img
-              id="img-scroll-of-women"
-              src="https://static.nike.com/a/images/f_auto/dpr_1.6,cs_srgb/h_589,c_limit/dd0078ea-ffa2-4c0e-9216-eddb76a16125/women-s-shoes-clothing-accessories.png"
-              alt=""
-            />
-            <div class="content-on-pictures2">
-              <h3>Sail & Green</h3>
-            </div>
-          </a>
+    <!-- 6. FEATURED (thay thế Trending) -->
+    <div class="featured-section">
+      <h2>Featured</h2>
+      <div class="featured-grid">
+        <!-- Ảnh trái: Court Styles -->
+        <div class="featured-item">
+          <img src="https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/c02034b5-2f5d-4fe4-848e-f0f23f60bc35/women-s-shoes-clothing-accessories.png" alt="Court Styles" />
+          <div class="featured-caption">
+            <h3>Court Styles</h3>
+            <a href="../men/clothing/men-clothing.html" class="btn-featured">Explore</a>
+          </div>
         </div>
-
-        <!-- Item 3 -->
-        <div id="type3" class="types-of-first-slider-of-women">
-          <a href="#type3">
-            <img
-              id="img-scroll-of-women"
-              src="https://static.nike.com/a/images/f_auto,cs_srgb/w_1536,c_limit/4d6618e2-7bcc-451d-8870-5d810c585fe2/image.png"
-              alt=""
-            />
-            <div class="content-on-pictures2">
-              <h3>Sail & Brown</h3>
-            </div>
-          </a>
+        <!-- Ảnh phải: Y2K Energy -->
+        <div class="featured-item">
+          <img src="https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/001c96b5-6ff5-4e40-b291-2ae7645597c2/women-s-shoes-clothing-accessories.png" alt="Y2K Energy" />
+          <div class="featured-caption">
+            <h3>Y2K Energy</h3>
+            <a href="../men/men-shoes.html" class="btn-featured">Shop Retro Running</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="shop-by-sport">
-      <h2>Shop by Sport</h2>
-      <div class="second-slider-of-women" style="margin-top: 40px;">
-        <!-- Item 1 -->
-        <div id="type1" class="types-of-second-slider-of-women">
-          <a href="#type1">
-            <img
-              id="img-scroll-of-women2"
-              src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_516,c_limit/9bed4896-6f1c-4131-ba41-553677153b3a/women-s-shoes-clothing-accessories.png"
-              alt=""
-            />
-            <div class="content-on-pictures22">
-              <h3>Running</h3>
-            </div>
-          </a>
+
+    <!-- 7. Shop by Color -->
+    <div class="shop-by-color">
+      <h2>Shop by Colour</h2>
+      <div class="first-slider-of-women" style="margin-top: 16px">
+        <div id="type1" class="types-of-first-slider-of-women">
+          <img class="img-scroll-of-women" src="https://static.nike.com/a/images/f_auto,cs_srgb/w_1536,c_limit/463fe4f9-bedc-407f-8c1c-0f4d590dd2c6/image.png" alt="Hydrogen Blue" />
+          <div class="content-on-pictures2">
+            <h3>Hydrogen Blue</h3>
+          </div>
+          <a href="../men/men-shoes.html" class="shop-color-btn">Shop</a>
         </div>
 
-        <!-- Item 2 -->
-        <div id="type2" class="types-of-second-slider-of-women">
-          <a href="#type2">
-            <img
-              id="img-scroll-of-women2"
-              src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_516,c_limit/6713a0c6-9a47-4279-bf7a-69ccbbda134f/women-s-shoes-clothing-accessories.png"
-              alt=""
-            />
-            <div class="content-on-pictures2">
-              <h3>Gym & Training</h3>
-            </div>
-          </a>
+        <div id="type2" class="types-of-first-slider-of-women">
+          <img class="img-scroll-of-women" src="https://static.nike.com/a/images/f_auto,cs_srgb/w_1536,c_limit/e4361327-fe10-4c99-b97c-3a106fb4588d/image.png" alt="Mineral Slate" />
+          <div class="content-on-pictures2">
+            <h3>Mineral Slate</h3>
+          </div>
+          <a href="../men/gear/gear.html" class="shop-color-btn">Shop</a>
         </div>
 
-        <!-- Item 3 -->
-        <div id="type3" class="types-of-second-slider-of-women">
-          <a href="#type3">
-            <img
-              id="img-scroll-of-women2"
-              src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_516,c_limit/c775894e-69ef-4c14-8177-f7122e28481e/women-s-shoes-clothing-accessories.png"
-              alt=""
-            />
-            <div class="content-on-pictures22">
-              <h3>Basketball</h3>
-            </div>
-          </a>
+        <div id="type3" class="types-of-first-slider-of-women">
+          <img class="img-scroll-of-women" src="https://static.nike.com/a/images/f_auto,cs_srgb/w_1536,c_limit/79aa2310-ffa4-4045-aa2a-02348f1758cd/women-s-shoes-clothing-accessories.png" alt="Peony" />
+          <div class="content-on-pictures2">
+            <h3>Peony</h3>
+          </div>
+          <a href="../men/clothing/men-clothing.html" class="shop-color-btn">Shop</a>
         </div>
-
-        <!-- Item 4 -->
-        <div id="type3" class="types-of-second-slider-of-women">
-          <a href="#type3">
-            <img
-              id="img-scroll-of-women2"
-              src="https://static.nike.com/a/images/f_auto,cs_srgb/w_1536,c_limit/9c4a9687-7094-4895-ad30-cc8f6d740270/women-s-shoes-clothing-accessories.png"
-              alt=""
-            />
-            <div class="content-on-pictures22">
-              <h3>Football</h3>
-            </div>
-          </a>
-        </div>
+      </div>
     </div>
-    <div style="position: relative;">
+
+    <!-- 8. NEW ARRIVALS -->
+    <div class="new-arrivals">
+      <div class="new-arrivals-header">
+        <h2 class="new-arrivals-title">New Arrivals</h2>
+        <div class="new-arrivals-controls">
+          <a href="#" class="new-arrivals-shop">Shop</a>
+          <button class="arrow-btn" id="prev-btn">&#8249;</button>
+          <button class="arrow-btn" id="next-btn">&#8250;</button>
+        </div>
+      </div>
+      <div class="new-arrivals-track-wrapper">
+        <div class="new-arrivals-track" id="arrivals-track">
+          <a class="arrival-item" href="../men/product-detail.html?id=p006">
+            <img src="https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d7ac1e29-6bf9-41b8-9fe0-a6993c362a76/NIKE+AIR+MAX+95+BIG+BUBBLE.png" alt="Nike Air Max 95 Big Bubble" />
+            <p class="arrival-name">Nike Air Max 95 Big Bubble</p>
+            <p class="arrival-type">Women's Shoes</p>
+            <p class="arrival-price">4,999,000₫</p>
+          </a>
+          <a class="arrival-item" href="../men/product-detail.html?id=p015">
+            <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/4960c593-6f67-49cc-87a0-97d2fa439a0d/NIKE+ACG+ZEGAMA+TRAIL.png" alt="ACG Zegama Trail" />
+            <p class="arrival-name">ACG Zegama Trail</p>
+            <p class="arrival-type">Women's Trail-Running Shoes</p>
+            <p class="arrival-price">4,999,000₫</p>
+          </a>
+          <a class="arrival-item" href="../men/product-detail.html?id=p007">
+            <img src="https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/459da7d4-ce1f-453a-932f-4c962af42f0d/AIR+MAX+90+PRM.png" alt="Nike Air Max Phenomena" />
+            <p class="arrival-name">Nike Air Max 90 Premium</p>
+            <p class="arrival-type">Men's Shoes</p>
+            <p class="arrival-price">4,109,000₫</p>
+          </a>
+          <a class="arrival-item" href="../men/product-detail.html?id=p043">
+            <img src="https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/f01efec1-62d7-406e-abfb-4e86b0b80586/W+NIKE+VOMERO+PREMIUM.png" alt="Nike Vomero 18" />
+            <p class="arrival-name">Nike Vomero Premium</p>
+            <p class="arrival-type">Men's Road Running Shoes</p>
+            <p class="arrival-price">6,459,000₫</p>
+          </a>
+          <a class="arrival-item" href="../men/product-detail.html?id=p031">
+            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5d0a086e-0277-45f4-9e1a-4fcb3e7ea6a0/W+AIR+PEGASUS+41.png" alt="Nike Air Pegasus 41" />
+            <p class="arrival-name">Nike Pegasus 42</p>
+            <p class="arrival-type">Men's Road Running Shoes</p>
+            <p class="arrival-price">3,829,000₫</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Shop by Sport -->
+    <div class="shop-by-sport">
+      <div class="shop-by-sport-header">
+        <h2 class="shop-by-sport-title">Shop by Sport</h2>
+        <div class="shop-by-sport-controls">
+          <button class="arrow-btn" id="sport-prev-btn">&#8249;</button>
+          <button class="arrow-btn" id="sport-next-btn">&#8250;</button>
+        </div>
+      </div>
+      <div class="shop-by-sport-track-wrapper">
+        <div class="shop-by-sport-track" id="sport-track">
+          <figure class="second-slider-item">
+            <img src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_516,c_limit/9bed4896-6f1c-4131-ba41-553677153b3a/women-s-shoes-clothing-accessories.png" alt="" />
+            <figcaption>
+              <div class="second-shop-button"><a href="../men/clothing/men-clothing.html">Shop Running</a></div>
+            </figcaption>
+          </figure>
+          <figure class="second-slider-item">
+            <img src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_516,c_limit/6713a0c6-9a47-4279-bf7a-69ccbbda134f/women-s-shoes-clothing-accessories.png" alt="" />
+            <figcaption>
+              <div class="second-shop-button"><a href="../men/men-shoes.html">Shop Gym &amp; Training</a></div>
+            </figcaption>
+          </figure>
+          <figure class="second-slider-item">
+            <img src="https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_516,c_limit/c775894e-69ef-4c14-8177-f7122e28481e/women-s-shoes-clothing-accessories.png" alt="" />
+            <figcaption>
+              <div class="second-shop-button"><a href="../men/gear/gear.html">Shop Basketball</a></div>
+            </figcaption>
+          </figure>
+          <figure class="second-slider-item">
+            <img src="https://static.nike.com/a/images/f_auto,cs_srgb/w_1536,c_limit/9c4a9687-7094-4895-ad30-cc8f6d740270/women-s-shoes-clothing-accessories.png" alt="" />
+            <figcaption>
+              <div class="second-shop-button"><a href="../men/men-shoes.html">Shop Football</a></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Spotlight -->
+    <div style="position: relative; margin-top: 40px">
       <h2 class="spotlight">SPOTLIGHT</h2>
       <div class="text-under-spotlight">
         <p>Classic silhouettes and cutting-edge innovation to build your game from the ground up.</p>
       </div>
       <div class="container">
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/9de56110-9532-4b30-baa2-c4d4655621df/image.png" alt=""><span><b>Air Jordan1 Low</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/b32a2f7c-0faf-495f-9b1a-7a791d511297/image.png" alt=""><span><b>Dunk</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/69f10b28-b90e-4d01-86c2-cbe744e93e9f/image.png" alt=""><span><b>Air Force 1</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/570e1d92-9a25-4437-8fc5-a63065e8bbb5/image.png" alt=""><span><b>Vomero Plus</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/5a6f0784-1e78-4c6a-9a57-45fd4bcb90b6/image.png" alt=""><span><b>Pegasus Premium</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/2e967c46-235c-4705-8247-2187fa4a1a2e/image.png" alt=""><span><b>24.7 Collection</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/37046247-2d5b-4c76-a530-d7559e64c01a/image.png" alt=""><span><b>Tennis Apparel</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/48ba5398-a354-48ad-b19e-9e7056bfabff/image.png" alt=""><span><b>Vapority</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/eb8e59ae-176e-4cbc-afd7-3fb8ad00f75d/image.png" alt=""><span><b>Sabrina</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/d5fd04cc-9c96-495d-ae67-d267d8fec001/image.png" alt=""><span><b>Cortez</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/57d95623-ba52-41f6-a84b-1aa5b5c9cc02/image.png" alt=""><span><b>Metcon 10</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/d4902a42-5c8a-44c7-a791-f2165f01cb6f/image.png" alt=""><span><b>NBA Jersey</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/4e2444f5-000d-41e8-addd-9e2157d9ab94/image.png" alt=""><span><b>Shox</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/9879b7ec-e73f-46c7-97c8-7f8c7b93b6e0/image.png" alt=""><span><b>Air Max DN</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/aa2ddfd4-b9b4-4540-a747-1ad353c51f7d/image.png" alt=""><span><b>Zoomfly 6</b></span></a></div>
-        <div class="item"><a href=""><img src="https://static.nike.com/a/images/w_144,c_limit/4223eeb4-beec-4117-8454-2f229277258f/image.png" alt=""><span><b>Graphic Tees</b></span></a></div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/9de56110-9532-4b30-baa2-c4d4655621df/image.png" alt="" /><span><b>Air Jordan1 Low</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/b32a2f7c-0faf-495f-9b1a-7a791d511297/image.png" alt="" /><span><b>Dunk</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/69f10b28-b90e-4d01-86c2-cbe744e93e9f/image.png" alt="" /><span><b>Air Force 1</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/570e1d92-9a25-4437-8fc5-a63065e8bbb5/image.png" alt="" /><span><b>Vomero Plus</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/5a6f0784-1e78-4c6a-9a57-45fd4bcb90b6/image.png" alt="" /><span><b>Pegasus Premium</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/2e967c46-235c-4705-8247-2187fa4a1a2e/image.png" alt="" /><span><b>24.7 Collection</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/37046247-2d5b-4c76-a530-d7559e64c01a/image.png" alt="" /><span><b>Tennis Apparel</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/48ba5398-a354-48ad-b19e-9e7056bfabff/image.png" alt="" /><span><b>Vapority</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/eb8e59ae-176e-4cbc-afd7-3fb8ad00f75d/image.png" alt="" /><span><b>Sabrina</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/d5fd04cc-9c96-495d-ae67-d267d8fec001/image.png" alt="" /><span><b>Cortez</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/57d95623-ba52-41f6-a84b-1aa5b5c9cc02/image.png" alt="" /><span><b>Metcon 10</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/d4902a42-5c8a-44c7-a791-f2165f01cb6f/image.png" alt="" /><span><b>NBA Jersey</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/4e2444f5-000d-41e8-addd-9e2157d9ab94/image.png" alt="" /><span><b>Shox</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/9879b7ec-e73f-46c7-97c8-7f8c7b93b6e0/image.png" alt="" /><span><b>Air Max DN</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/aa2ddfd4-b9b4-4540-a747-1ad353c51f7d/image.png" alt="" /><span><b>Zoomfly 6</b></span></a
+          >
+        </div>
+        <div class="item">
+          <a href=""
+            ><img src="https://static.nike.com/a/images/w_144,c_limit/4223eeb4-beec-4117-8454-2f229277258f/image.png" alt="" /><span><b>Graphic Tees</b></span></a
+          >
+        </div>
+      </div>
     </div>
-    </div>
-    <hr style="height: 1px;"black
-  <!-- 4. Footer -->
+
+    <hr style="height: 1px; border: none; background: #e5e5e5; margin: 40px 0 0 0" />
+
+    <!-- 11. Footer -->
     <footer>
       <div class="footer-col">
         <h4>Resources</h4>
@@ -613,5 +675,51 @@
         </div>
       </div>
     </footer>
-</body>
+
+    <script>
+      // New Arrivals slider
+      const track = document.getElementById("arrivals-track");
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+      let index = 0;
+      const getItemWidth = () => track.children[0].offsetWidth + 16;
+
+      nextBtn.addEventListener("click", () => {
+        if (index < track.children.length - 3) {
+          index++;
+          track.style.transform = `translateX(-${index * getItemWidth()}px)`;
+        }
+      });
+      prevBtn.addEventListener("click", () => {
+        if (index > 0) {
+          index--;
+          track.style.transform = `translateX(-${index * getItemWidth()}px)`;
+        }
+      });
+
+      // Shop by Sport slider
+      const sportTrack = document.getElementById("sport-track");
+      const sportPrevBtn = document.getElementById("sport-prev-btn");
+      const sportNextBtn = document.getElementById("sport-next-btn");
+      let sportIndex = 0;
+      const getSportWidth = () => sportTrack.children[0].offsetWidth + 4;
+
+      sportNextBtn.addEventListener("click", () => {
+        if (sportIndex < sportTrack.children.length - 3) {
+          sportIndex++;
+          sportTrack.style.transform = `translateX(-${sportIndex * getSportWidth()}px)`;
+        }
+      });
+      sportPrevBtn.addEventListener("click", () => {
+        if (sportIndex > 0) {
+          sportIndex--;
+          sportTrack.style.transform = `translateX(-${sportIndex * getSportWidth()}px)`;
+        }
+      });
+    </script>
+    <script>
+      document.querySelector(".main-header").style.position = "relative";
+      document.querySelector(".women-subnav").style.top = "0";
+    </script>
+  </body>
 </html>

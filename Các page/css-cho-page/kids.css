@@ -1,0 +1,206 @@
+/* === KIDS PAGE — Extra Sections === */
+/* File riêng cho trang Kids, không sửa decor.css/women.css
+   nên các trang khác không bị ảnh hưởng */
+
+.kids-section {
+  padding: 0 48px;
+  margin-top: 56px;
+}
+
+.kids-section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+/* --- Shop By Age --- */
+.kids-age-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.kids-age-card {
+  position: relative;
+  display: block;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #22252b;
+}
+
+.kids-age-card img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.kids-age-card .kids-card-label {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  max-width: 50%;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* --- Gear Up by Sport --- */
+.kids-sport-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.kids-sport-card {
+  position: relative;
+  display: block;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.kids-sport-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.kids-sport-card:hover img {
+  transform: scale(1.04);
+}
+
+.kids-sport-card .kids-card-label {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  z-index: 2;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* --- Featured --- */
+.kids-featured {
+  margin-top: 56px;
+}
+
+.kids-featured-header {
+  padding: 20px 48px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.kids-featured-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.kids-featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.kids-featured-item {
+  position: relative;
+  height: 850px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.kids-featured-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.kids-featured-caption {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 48px 48px;
+  color: #fff;
+}
+
+.kids-kicker {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.kids-featured-caption h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.kids-shop-btn {
+  display: inline-block;
+  background: #fff;
+  color: #111;
+  padding: 10px 28px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.kids-shop-btn:hover {
+  background: #e5e5e5;
+}
+
+/* --- Fit Guides --- */
+.kids-fitguide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.kids-fitguide-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.kids-fitguide-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 14px;
+}
+
+.kids-learn-btn {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.kids-learn-btn:hover {
+  background: #444;
+}
+
+/* Spotlight dùng chung class .spotlight / .text-under-spotlight / .container / .item
+   đã có sẵn trong decor.css — không cần CSS riêng ở đây nữa. */

@@ -1,0 +1,41 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+
+    width: 70%;
+    margin: 200px;
+    align-self: center;
+    justify-items: center;
+
+    column-gap: 20px;
+    row-gap: 50px;
+    
+}
+.item{
+    flex: 1 0 30%;     /* Mỗi ảnh chiếm khoảng 30% chiều rộng */
+    height: 100px;     /* Ví dụ chiều cao */
+
+}
+.item img{
+    max-width: 100%; 
+    width: 200px;
+    height: auto;
+    display: block;
+}
+.item span{
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    text-decoration: none;
+}
+.container a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Futura', 'Trade Gothic', 'Helvetica', sans-serif;
+
+}
+.container span{
+    font-size: 10px;
+}

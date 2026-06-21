@@ -56,75 +56,85 @@ div{
   color: white; /* chữ trắng khi hover */
 }
 
-/* Div sau */
-.shop-by-color{
-  margin-top: 40px;
-}
-.shop-by-color h2{
-  margin-bottom: 10px;
-  font-size: 30px;
-  margin: 0 40px;
-}
-.shop-by-sport{
-  margin-top: 40px;
-}
-.shop-by-sport h2{
-  margin-bottom: 10px;
-  margin: 0 40px;
-}
-.first-slider-of-women {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  width: 100%;
-  scroll-snap-type: x mandatory;
-  padding: 10px;
-  gap: 20px;
+/* Shop by Sport - giống men gốc */
+.shop-by-sport {
+  padding: 0 48px;
+  margin-bottom: 48px;
+  margin-top: 0;
 }
 
-.types-of-first-slider-of-women {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: 400px; /* hoặc điều chỉnh theo ý */
-  gap: 5px
-}
-.types-of-first-slider-of-women a{
-  text-decoration: none;
-  font-size: 20px;
-}
-#img-scroll-of-women{
-  width: 400px;
-  height: 400px;
-}
-.content-on-pictures2{
-  color: black;
-}
-/* Slider 2 */
-.second-slider-of-women {
+.shop-by-sport-header {
   display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  width: 100%;
-  scroll-snap-type: x mandatory;
-  padding: 10px;
-  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 24px 0 8px;
 }
 
-.types-of-second-slider-of-women {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  width: 400px; /* hoặc điều chỉnh theo ý */
+.shop-by-sport-title {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  color: #111;
 }
-.types-of-second-slider-of-women a{
-  text-decoration: none;
-  font-size: 20px;
+
+.shop-by-sport-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-#img-scroll-of-women2{
-  width: 400px;
-  height: 400px;
+
+.shop-by-sport-track-wrapper {
+  overflow: hidden;
 }
-.content-on-pictures22{
+
+.shop-by-sport-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s ease;
+}
+
+.shop-by-sport-track .second-slider-item {
+  position: relative;
+  flex: 0 0 calc(33.333% - 11px);
+  margin: 0;
+}
+
+.shop-by-sport-track .second-slider-item img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+}
+
+.shop-by-sport-track .second-slider-item figcaption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+}
+
+.shop-by-sport-track .second-shop-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: white;
   color: black;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.shop-by-sport-track .second-shop-button a {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.shop-by-sport-track .second-shop-button:hover {
+  background-color: #e5e5e5;
 }
 .spotlight{
   text-align: center;

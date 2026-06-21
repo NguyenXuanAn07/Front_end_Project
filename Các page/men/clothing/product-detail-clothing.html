@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail – Nike</title>
+    <link rel="stylesheet" href="../../head,foot/css/header.css" />
+    <link rel="stylesheet" href="../../head,foot/css/anouncement_bar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="icon" href="../../head,foot/img/logotronnike.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      /* bỏ sticky header */
+      .main-header {
+        position: relative;
+        top: auto;
+      }
+
+      /* ===== BREADCRUMB ===== */
+      .breadcrumb {
+        padding: 16px 48px;
+        font-size: 13px;
+        color: #757575;
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .breadcrumb a {
+        color: #757575;
+        text-decoration: none;
+      }
+      .breadcrumb a:hover {
+        color: #111;
+        text-decoration: underline;
+      }
+      .breadcrumb .bc-sep {
+        color: #ccc;
+      }
+
+      /* ===== PDP LAYOUT: thumbnail | main-img | info ===== */
+      .pdp-main {
+        display: grid;
+        grid-template-columns: 80px 1fr 480px;
+        gap: 0 24px;
+        padding: 0 48px 80px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      /* ===== THUMBNAILS ===== */
+      .pdp-thumbnails {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .pdp-thumb {
+        width: 72px;
+        height: 72px;
+        background: #f5f5f5;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+        flex-shrink: 0;
+        transition: border-color 0.15s;
+      }
+      .pdp-thumb.active {
+        border-color: #111;
+      }
+      .pdp-thumb:hover {
+        border-color: #111;
+      }
+      .pdp-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      /* ===== MAIN IMAGE ===== */
+      .pdp-image-main {
+        background: #f5f5f5;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1 / 1;
+        max-height: 620px;
+      }
+      .pdp-image-main img {
+        width: 85%;
+        object-fit: contain;
+        transition: opacity 0.2s ease;
+      }
+      .pdp-img-nav {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        display: flex;
+        gap: 8px;
+      }
+      .pdp-img-nav button {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.9);
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        transition: background 0.15s;
+      }
+      .pdp-img-nav button:hover {
+        background: #fff;
+      }
+
+      /* ===== INFO PANEL ===== */
+      .pdp-info {
+        padding: 0 0 0 16px;
+      }
+
+      .pdp-badge-top {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .pdp-badge-top.red {
+        color: #e00000;
+      }
+
+      .pdp-name {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: #111;
+        margin-bottom: 4px;
+      }
+      .pdp-type {
+        font-size: 16px;
+        color: #757575;
+        margin-bottom: 12px;
+      }
+      .pdp-price {
+        font-size: 20px;
+        font-weight: 500;
+        color: #111;
+        margin-bottom: 24px;
+      }
+
+      /* ===== SIZE ===== */
+      .pdp-size-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .pdp-size-label {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111;
+      }
+      .pdp-size-guide {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #111;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .pdp-size-guide:hover {
+        text-decoration: underline;
+      }
+
+      .pdp-size-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .pdp-size-error {
+        font-size: 13px;
+        color: #e00000;
+        margin-bottom: 12px;
+        display: none;
+      }
+      .pdp-size-error.visible {
+        display: block;
+      }
+      .pdp-size-option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 18px 4px;
+        font-size: 15px;
+        font-weight: 400;
+        color: #111;
+        cursor: pointer;
+        background: #fff;
+        transition: border-color 0.15s;
+        user-select: none;
+      }
+      .pdp-size-option:hover {
+        border-color: #111;
+      }
+      .pdp-size-option.selected {
+        border: 2px solid #111;
+        font-weight: 700;
+      }
+
+      /* ===== BUTTONS ===== */
+      .pdp-btn-add {
+        display: block;
+        width: 100%;
+        padding: 18px;
+        background: #111;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-bottom: 12px;
+        margin-top: 16px;
+        transition: background 0.2s;
+        text-align: center;
+        letter-spacing: 0.3px;
+      }
+      .pdp-btn-add:hover {
+        background: #333;
+      }
+
+      .pdp-btn-fav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 18px;
+        background: #fff;
+        color: #111;
+        font-size: 16px;
+        font-weight: 500;
+        border: 1px solid #e5e5e5;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-bottom: 24px;
+        transition: border-color 0.2s;
+      }
+      .pdp-btn-fav:hover {
+        border-color: #111;
+      }
+
+      /* ===== DESCRIPTION ===== */
+      .pdp-description {
+        font-size: 16px;
+        font-weight: 500;
+        color: #111;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .pdp-detail-list {
+        list-style: disc;
+        padding-left: 20px;
+        margin-bottom: 14px;
+      }
+      .pdp-detail-list li {
+        font-size: 16px;
+        font-weight: 500;
+        color: #111;
+        line-height: 1.9;
+      }
+      .pdp-view-details {
+        font-size: 16px;
+        font-weight: 600;
+        color: #111;
+        text-decoration: underline;
+        cursor: pointer;
+        display: inline-block;
+        margin-bottom: 24px;
+        text-underline-offset: 3px;
+      }
+      .pdp-view-details:hover {
+        color: #757575;
+      }
+
+      /* ===== ACCORDION ===== */
+      .pdp-accordion-item {
+        border-top: 1px solid #e5e5e5;
+      }
+      .pdp-accordion-item:last-child {
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .pdp-accordion-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 700;
+        color: #111;
+        user-select: none;
+      }
+      .pdp-accordion-header:hover {
+        opacity: 0.7;
+      }
+      .pdp-accordion-header .acc-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #757575;
+        font-weight: 400;
+        font-size: 14px;
+      }
+      .pdp-acc-arrow {
+        font-size: 13px;
+        color: #111;
+        transition: transform 0.2s;
+      }
+      .pdp-accordion-body {
+        display: none;
+        padding: 0 0 20px;
+        font-size: 15px;
+        color: #111;
+        line-height: 1.7;
+      }
+      .pdp-accordion-body.open {
+        display: block;
+      }
+      .pdp-accordion-body ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin-bottom: 10px;
+      }
+      .pdp-accordion-body ul li {
+        margin-bottom: 7px;
+      }
+      .pdp-accordion-body p {
+        margin-bottom: 10px;
+      }
+      .stars-empty {
+        color: #ccc;
+        letter-spacing: 1px;
+        font-size: 15px;
+      }
+
+      /* ===== SOCIAL ===== */
+      .pdp-social {
+        padding: 44px 48px 60px;
+        max-width: 1440px;
+        margin: 0 auto;
+        border-top: 1px solid #e5e5e5;
+      }
+      .pdp-social h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 6px;
+      }
+      .pdp-social p {
+        font-size: 14px;
+        color: #757575;
+        margin-bottom: 20px;
+      }
+      .pdp-outline-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 24px;
+        border: 1px solid #e5e5e5;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #111;
+        cursor: pointer;
+        background: #fff;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .pdp-outline-btn:hover {
+        background: #111;
+        color: #fff;
+      }
+
+      /* ===== YOU MIGHT ALSO LIKE ===== */
+      .pdp-related {
+        padding: 12px 48px 60px;
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+      .pdp-related-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+      .pdp-related-head h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #111;
+      }
+      .pdp-related-nav {
+        display: flex;
+        gap: 10px;
+      }
+      .pdp-related-nav button {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: #f5f5f5;
+        cursor: pointer;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s;
+      }
+      .pdp-related-nav button:hover:not(:disabled) {
+        background: #e5e5e5;
+      }
+      .pdp-related-nav button:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+      .pdp-related-track {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+      }
+      .pdp-related-track::-webkit-scrollbar {
+        display: none;
+      }
+      .pdp-related-card {
+        flex: 0 0 calc(25% - 12px);
+        min-width: 220px;
+        cursor: pointer;
+      }
+      .pdp-related-img-wrap {
+        background: #f5f5f5;
+        overflow: hidden;
+        margin-bottom: 10px;
+        border-radius: 2px;
+      }
+      .pdp-related-img-wrap img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+      .pdp-related-card:hover .pdp-related-img-wrap img {
+        transform: scale(1.04);
+      }
+      .pdp-related-badge {
+        color: #e00000;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 3px;
+      }
+      .pdp-related-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 2px;
+      }
+      .pdp-related-type {
+        font-size: 14px;
+        color: #757575;
+        margin-bottom: 3px;
+      }
+      .pdp-related-price {
+        font-size: 14px;
+        font-weight: 500;
+        color: #111;
+      }
+
+      /* ===== PRODUCT DETAILS MODAL ===== */
+      .pdp-modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .pdp-modal-overlay.open {
+        display: flex;
+      }
+      .pdp-modal-box {
+        background: #fff;
+        width: 100%;
+        max-width: 640px;
+        max-height: 86vh;
+        overflow-y: auto;
+        border-radius: 8px;
+        padding: 32px;
+        position: relative;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      }
+      .pdp-modal-close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: #f5f5f5;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s;
+      }
+      .pdp-modal-close:hover {
+        background: #e5e5e5;
+      }
+      .pdp-modal-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-right: 48px;
+      }
+      .pdp-modal-thumb {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        background: #f5f5f5;
+        overflow: hidden;
+      }
+      .pdp-modal-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+      .pdp-modal-name {
+        font-size: 17px;
+        font-weight: 500;
+        color: #111;
+        margin-bottom: 4px;
+      }
+      .pdp-modal-price {
+        font-size: 15px;
+        color: #111;
+      }
+      .pdp-modal-desc {
+        font-size: 15px;
+        color: #111;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+      .pdp-modal-subtitle {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 12px;
+      }
+      .pdp-modal-list {
+        list-style: disc;
+        padding-left: 20px;
+      }
+      .pdp-modal-list li {
+        font-size: 16px;
+        font-weight: 500;
+        color: #111;
+        line-height: 1.9;
+      }
+
+      /* ===== NOT FOUND ===== */
+      .pdp-not-found {
+        padding: 80px 48px;
+        text-align: center;
+        font-size: 20px;
+        color: #757575;
+      }
+      .pdp-not-found a {
+        color: #111;
+        font-weight: 600;
+      }
+
+      /* ===== TOAST ===== */
+      .pdp-toast {
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #111;
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-size: 15px;
+        font-weight: 500;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+        z-index: 9999;
+        white-space: nowrap;
+      }
+      .pdp-toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. Top Header -->
+    <header class="top-header">
+      <div class="jordan-logo">
+        <img src="../../head,foot/img/JORDAN-removebg-preview.png" alt="" />
+      </div>
+      <div class="top-nav-links">
+        <a href="#">Find a Store</a><span>|</span> <a href="#">Help</a><span>|</span> <a href="#">Join Us</a><span>|</span>
+        <a href="../../SignIn_SignUp/signin.html">Sign In</a>
+      </div>
+    </header>
+
+    <!-- 2. Main Header -->
+    <header class="main-header">
+      <a href="../../index.html" class="nike-logo">
+        <img src="../../head,foot/img/logo.png" alt="" />
+      </a>
+      <nav class="nav-menu">
+        <div class="nav-item"><a href="">New &amp; Featured</a></div>
+        <div class="nav-item"><a href="../men.html">Men</a></div>
+        <div class="nav-item"><a href="../../women.html">Women</a></div>
+        <div class="nav-item"><a href="../../kids-type.html">Kids</a></div>
+        <div class="nav-item"><a href="">Nike Football</a></div>
+        <div class="nav-item"><a href="../../sale-type.html">Sale</a></div>
+      </nav>
+      <div class="header-right">
+        <div class="search-container">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+        <i class="fa-regular fa-heart icon-btn"></i>
+        <i class="fa-regular fa-bag-shopping icon-btn"></i>
+      </div>
+    </header>
+
+    <!-- 3. Announcement Bar -->
+    <div class="announcement-bar">
+      <p>Free Standard Delivery &amp; 30-Day Free Returns <a href="#">Join Now</a> <a href="#">View Details</a></p>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+
+    <!-- PDP root (filled by JS) -->
+    <div id="pdp-root"></div>
+
+    <!-- Product Details Modal (filled by JS) -->
+    <div class="pdp-modal-overlay" id="pdp-modal-overlay">
+      <div class="pdp-modal-box" id="pdp-modal-box"></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="pdp-toast" id="pdp-toast"></div>
+
+    <!-- Data: clothing-products.js phải nằm cùng thư mục với file HTML này -->
+    <script src="./clothing-products.js"></script>
+
+    <script>
+      (function () {
+        /* ── helpers ── */
+        function fmt(v) {
+          return v.toLocaleString("vi-VN") + "₫";
+        }
+
+        function showToast(msg) {
+          const toast = document.getElementById("pdp-toast");
+          toast.textContent = msg;
+          toast.classList.add("show");
+          setTimeout(() => toast.classList.remove("show"), 2500);
+        }
+
+        function fitLabel(fit) {
+          return (
+            {
+              standard: "Standard fit: easy and traditional",
+              loose: "Loose fit: relaxed and roomy",
+              tight: "Tight fit: close to the body",
+              slim: "Slim fit: close to the body with room to move",
+              tapered: "Tapered fit: roomy through hips, narrower at ankle",
+              oversized: "Oversized fit: extra roomy",
+            }[fit] || "Standard fit: easy and traditional"
+          );
+        }
+
+        function descFor(product) {
+          if (product.description) return product.description;
+          const cat = product.category;
+          const name = product.name;
+          return (
+            {
+              shorts: `There are only 24 hours in a day to get better. Channel your inner Mamba. These ${name} shorts help keep you cool as you grind through every session.`,
+              tops: `Engineered for peak performance, the ${name} top keeps you comfortable and focused — whether you're on the court or in the gym.`,
+              hoodies: `Wrap up in classic comfort. The ${name} hoodie is crafted to keep you cosy through every season, from warm-ups to wind-downs.`,
+              jackets: `Ready for whatever the day brings. The ${name} jacket layers perfectly over your favourite kit, keeping you moving in style.`,
+              trousers: `Versatile and performance-ready, these ${name} trousers move with you from training to the street.`,
+              tracksuits: `A complete look from warm-up to cool-down. The ${name} tracksuit pairs comfort with iconic Nike style.`,
+              compression: `Support where you need it most. This ${name} compression top hugs your muscles to help reduce fatigue and keep you performing.`,
+              socks: `Cushioned where it counts — the ${name} socks keep your feet comfortable through every step.`,
+            }[cat] || `Engineered with Nike technology, the ${name} is designed for performance and everyday style.`
+          );
+        }
+
+        function catLabel(cat) {
+          return (
+            {
+              tops: "Tops & T-Shirts",
+              hoodies: "Hoodies & Sweatshirts",
+              jackets: "Jackets",
+              trousers: "Trousers & Tights",
+              tracksuits: "Tracksuits",
+              shorts: "Shorts",
+              compression: "Compression & Base Layer",
+              socks: "Socks",
+            }[cat] || "Clothing"
+          );
+        }
+
+        /* ── find product ── */
+        const id = new URLSearchParams(window.location.search).get("id");
+        const product = (typeof PRODUCTS !== "undefined" ? PRODUCTS : []).find((p) => p.id === id);
+
+        const root = document.getElementById("pdp-root");
+
+        if (!product) {
+          root.innerHTML = `
+          <div class="pdp-not-found">
+            <p>Không tìm thấy sản phẩm.</p>
+            <p style="margin-top:12px"><a href="./men-clothing.html">← Quay lại</a></p>
+          </div>`;
+          return;
+        }
+
+        /* ── page title + breadcrumb ── */
+        document.title = `${product.name} – ${product.type} – Nike`;
+
+        document.getElementById("breadcrumb").innerHTML = `
+        <a href="../../index.html">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="../men.html">Men</a>
+        <span class="bc-sep">›</span>
+        <a href="./men-clothing.html">Men's Clothing</a>
+        <span class="bc-sep">›</span>
+        <span>${catLabel(product.category)}</span>`;
+
+        /* ── build parts ── */
+        // thumbnails — ưu tiên dùng product.images (mảng nhiều ảnh thật);
+        // nếu sản phẩm chưa có mảng images thì fallback lặp lại product.img
+        const imageList = Array.isArray(product.images) && product.images.length ? product.images : Array(5).fill(product.img);
+        const thumbsHtml = imageList
+          .map(
+            (src, i) => `
+        <div class="pdp-thumb ${i === 0 ? "active" : ""}" data-index="${i}">
+          <img src="${src}" alt="${product.name} – góc ${i + 1}" ${i > 0 ? 'loading="lazy"' : ""} />
+        </div>`,
+          )
+          .join("");
+
+        // size grid
+        const sizesHtml = (product.sizes || ["S", "M", "L", "XL"])
+          .map(
+            (s) => `
+        <div class="pdp-size-option" data-size="${s}">${s}</div>`,
+          )
+          .join("");
+
+        // badge
+        const badgeHtml = product.badge ? `<p class="pdp-badge-top red">${product.badge}</p>` : "";
+
+        // color display
+        const colorStr = (product.colors || ["Black"]).map((c) => c.charAt(0).toUpperCase() + c.slice(1)).join("/");
+        const styleCode = `${product.id.toUpperCase()}-010`;
+        const originStr = "Vietnam";
+        const descriptionText = descFor(product);
+
+        /* ── full render ── */
+        root.innerHTML = `
+        <div class="pdp-main">
+
+          <!-- Thumbnails -->
+          <div class="pdp-thumbnails" id="pdp-thumbs">${thumbsHtml}</div>
+
+          <!-- Main image -->
+          <div class="pdp-image-main">
+            <img id="pdp-main-img" src="${imageList[0]}" alt="${product.name}" />
+            <div class="pdp-img-nav">
+              <button id="prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+              <button id="next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Info panel -->
+          <div class="pdp-info">
+            ${badgeHtml}
+            <h1 class="pdp-name">${product.name}</h1>
+            <p class="pdp-type">${product.type}</p>
+            <p class="pdp-price">${fmt(product.price)}</p>
+
+            <div class="pdp-size-header">
+              <span class="pdp-size-label">Select Size</span>
+              <a class="pdp-size-guide" href="#">
+                <i class="fa-regular fa-ruler"></i> Size Guide
+              </a>
+            </div>
+            <div class="pdp-size-grid" id="pdp-size-grid">${sizesHtml}</div>
+            <p class="pdp-size-error" id="pdp-size-error">Vui lòng chọn size.</p>
+
+            <button class="pdp-btn-add" id="add-to-bag">Add to Bag</button>
+            <button class="pdp-btn-fav" id="fav-btn">
+              Favourite <i class="fa-regular fa-heart" id="fav-icon"></i>
+            </button>
+
+            <p class="pdp-description">${descriptionText}</p>
+
+            <ul class="pdp-detail-list">
+              <li>Colour Shown: ${colorStr}</li>
+              <li>Style: ${styleCode}</li>
+              <li>Country/Region of Origin: ${originStr}</li>
+            </ul>
+            <span class="pdp-view-details" id="toggle-details">View Product Details</span>
+
+            <!-- Size & Fit -->
+            <div class="pdp-accordion-item">
+              <div class="pdp-accordion-header" onclick="toggleAcc('sizefit')">
+                <span>Size &amp; Fit</span>
+                <div class="acc-right">
+                  <i class="fa-solid fa-chevron-down pdp-acc-arrow" id="arr-sizefit"></i>
+                </div>
+              </div>
+              <div class="pdp-accordion-body" id="acc-sizefit">
+                <ul>
+                  <li>${fitLabel(product.fit)}</li>
+                  <li><a href="#" style="color:#111;font-weight:600;">Size Guide</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Free Delivery -->
+            <div class="pdp-accordion-item">
+              <div class="pdp-accordion-header" onclick="toggleAcc('delivery')">
+                <span>Free Delivery and Returns</span>
+                <div class="acc-right">
+                  <i class="fa-solid fa-chevron-down pdp-acc-arrow" id="arr-delivery"></i>
+                </div>
+              </div>
+              <div class="pdp-accordion-body" id="acc-delivery">
+                <p>Your order of 5.000.000₫ or more gets free standard delivery.</p>
+                <ul>
+                  <li>Standard delivered 4–5 Business Days</li>
+                  <li>Express delivered 2–4 Business Days</li>
+                </ul>
+                <p>Orders are processed and delivered Monday–Friday (excluding public holidays)</p>
+                <p>Nike Members enjoy <a href="#" style="font-weight:700;color:#111;">free returns</a>.</p>
+              </div>
+            </div>
+
+            <!-- How This Was Made -->
+            <div class="pdp-accordion-item">
+              <div class="pdp-accordion-header" onclick="toggleAcc('made')">
+                <span>How This Was Made</span>
+                <div class="acc-right">
+                  <i class="fa-solid fa-chevron-down pdp-acc-arrow" id="arr-made"></i>
+                </div>
+              </div>
+              <div class="pdp-accordion-body" id="acc-made">
+                <ul>
+                  <li>The recycled polyester used in Nike products begins as recycled plastic bottles, which are cleaned, shredded into flakes and converted into pellets. From there, the pellets are spun into new, high-quality yarn — delivering peak performance with a lower impact on the environment.</li>
+                  <li>In addition to reducing waste, recycled polyester produces up to 30% lower carbon emissions than virgin polyester. Nike diverts an average of 1 billion plastic bottles annually from landfill and waterways.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Reviews -->
+            <div class="pdp-accordion-item">
+              <div class="pdp-accordion-header" onclick="toggleAcc('reviews')">
+                <span>Reviews (0)</span>
+                <div class="acc-right">
+                  <span class="stars-empty">☆☆☆☆☆</span>
+                  <i class="fa-solid fa-chevron-down pdp-acc-arrow" id="arr-reviews"></i>
+                </div>
+              </div>
+              <div class="pdp-accordion-body" id="acc-reviews">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                  <span class="stars-empty" style="font-size:20px;">☆☆☆☆☆</span>
+                  <span style="color:#757575;">No reviews</span>
+                </div>
+                <p style="margin-bottom:14px;">Have your say. Be the first to review the <strong>${product.name}</strong>.</p>
+                <button class="pdp-outline-btn">Write a review</button>
+              </div>
+            </div>
+
+          </div><!-- /.pdp-info -->
+        </div><!-- /.pdp-main -->
+
+        <!-- How Others Are Wearing It -->
+        <div class="pdp-social">
+          <h2>How Others Are Wearing It</h2>
+          <p>Upload your photo or mention @Nike on Instagram for a chance to be featured.</p>
+          <button class="pdp-outline-btn">Upload Your Photo</button>
+        </div>
+
+        <!-- You Might Also Like -->
+        <div class="pdp-related" id="pdp-related">
+          <div class="pdp-related-head">
+            <h2>You Might Also Like</h2>
+            <div class="pdp-related-nav">
+              <button id="related-prev"><i class="fa-solid fa-chevron-left"></i></button>
+              <button id="related-next"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+          <div class="pdp-related-track" id="related-track"></div>
+        </div>
+      `;
+
+        /* ── interactions ── */
+
+        // Thumbnails
+        const thumbEls = document.querySelectorAll(".pdp-thumb");
+        const mainImg = document.getElementById("pdp-main-img");
+        let cur = 0;
+
+        function setThumb(i) {
+          thumbEls.forEach((t) => t.classList.remove("active"));
+          thumbEls[i].classList.add("active");
+          mainImg.style.opacity = "0.5";
+          mainImg.src = thumbEls[i].querySelector("img").src;
+          mainImg.onload = () => {
+            mainImg.style.opacity = "1";
+          };
+          cur = i;
+        }
+        thumbEls.forEach((t, i) => t.addEventListener("click", () => setThumb(i)));
+        document.getElementById("prev-btn").addEventListener("click", () => setThumb((cur - 1 + thumbEls.length) % thumbEls.length));
+        document.getElementById("next-btn").addEventListener("click", () => setThumb((cur + 1) % thumbEls.length));
+
+        // Size
+        document.querySelectorAll(".pdp-size-option").forEach((opt) =>
+          opt.addEventListener("click", () => {
+            document.querySelectorAll(".pdp-size-option").forEach((o) => o.classList.remove("selected"));
+            opt.classList.add("selected");
+            document.getElementById("pdp-size-error").classList.remove("visible");
+          }),
+        );
+
+        // Add to Bag
+        document.getElementById("add-to-bag").addEventListener("click", () => {
+          const sel = document.querySelector(".pdp-size-option.selected");
+          if (!sel) {
+            document.getElementById("pdp-size-error").classList.add("visible");
+            document.getElementById("pdp-size-grid").scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+          }
+          showToast(`✓ Đã thêm vào giỏ: ${product.name} – Size ${sel.dataset.size}`);
+        });
+
+        // Favourite
+        let faved = false;
+        document.getElementById("fav-btn").addEventListener("click", () => {
+          faved = !faved;
+          const icon = document.getElementById("fav-icon");
+          icon.className = faved ? "fa-solid fa-heart" : "fa-regular fa-heart";
+          icon.style.color = faved ? "#e00000" : "";
+          showToast(faved ? `♡ Đã thêm vào Favourites` : `Đã xoá khỏi Favourites`);
+        });
+
+        // ── View Product Details modal ──
+        const modalOverlay = document.getElementById("pdp-modal-overlay");
+        const modalBox = document.getElementById("pdp-modal-box");
+
+        function openDetailsModal() {
+          modalBox.innerHTML = `
+          <button class="pdp-modal-close" id="pdp-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+          <div class="pdp-modal-head">
+            <div class="pdp-modal-thumb">
+              <img src="${product.img}" alt="${product.name}" />
+            </div>
+            <div>
+              <p class="pdp-modal-name">${product.name}</p>
+              <p class="pdp-modal-price">${fmt(product.price)}</p>
+            </div>
+          </div>
+          <p class="pdp-modal-desc">${descriptionText}</p>
+          <p class="pdp-modal-subtitle">Product details</p>
+          <ul class="pdp-modal-list">
+            <li>Colour Shown: ${colorStr}</li>
+            <li>Style: ${styleCode}</li>
+            <li>Country/Region of Origin: ${originStr}</li>
+          </ul>
+        `;
+          modalOverlay.classList.add("open");
+          document.getElementById("pdp-modal-close").addEventListener("click", closeDetailsModal);
+        }
+
+        function closeDetailsModal() {
+          modalOverlay.classList.remove("open");
+        }
+
+        document.getElementById("toggle-details").addEventListener("click", openDetailsModal);
+        modalOverlay.addEventListener("click", (e) => {
+          if (e.target === modalOverlay) closeDetailsModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeDetailsModal();
+        });
+
+        // ── You Might Also Like ──
+        const relatedTrack = document.getElementById("related-track");
+        const allProducts = typeof PRODUCTS !== "undefined" ? PRODUCTS : [];
+        const relatedList = allProducts.filter((p) => p.id !== product.id && p.category === product.category).concat(allProducts.filter((p) => p.id !== product.id && p.category !== product.category));
+
+        relatedTrack.innerHTML = relatedList
+          .map(
+            (p) => `
+          <div class="pdp-related-card" data-id="${p.id}">
+            <div class="pdp-related-img-wrap">
+              <img src="${p.img}" alt="${p.name}" loading="lazy" />
+            </div>
+            ${p.badge ? `<p class="pdp-related-badge">${p.badge}</p>` : ""}
+            <p class="pdp-related-name">${p.name}</p>
+            <p class="pdp-related-type">${p.type}</p>
+            <p class="pdp-related-price">${fmt(p.price)}</p>
+          </div>`,
+          )
+          .join("");
+
+        relatedTrack.querySelectorAll(".pdp-related-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            window.location.href = `./product-detail-clothing.html?id=${card.dataset.id}`;
+          });
+        });
+
+        const relatedPrevBtn = document.getElementById("related-prev");
+        const relatedNextBtn = document.getElementById("related-next");
+
+        function updateRelatedNavState() {
+          relatedPrevBtn.disabled = relatedTrack.scrollLeft <= 4;
+          relatedNextBtn.disabled = relatedTrack.scrollLeft + relatedTrack.clientWidth >= relatedTrack.scrollWidth - 4;
+        }
+
+        relatedPrevBtn.addEventListener("click", () => {
+          relatedTrack.scrollBy({ left: -relatedTrack.clientWidth * 0.8, behavior: "smooth" });
+        });
+        relatedNextBtn.addEventListener("click", () => {
+          relatedTrack.scrollBy({ left: relatedTrack.clientWidth * 0.8, behavior: "smooth" });
+        });
+        relatedTrack.addEventListener("scroll", updateRelatedNavState);
+        updateRelatedNavState();
+      })();
+
+      // Accordion — global vì dùng onclick inline
+      function toggleAcc(key) {
+        const body = document.getElementById("acc-" + key);
+        const arrow = document.getElementById("arr-" + key);
+        if (!body) return;
+        const open = body.classList.toggle("open");
+        arrow.classList.toggle("fa-chevron-up", open);
+        arrow.classList.toggle("fa-chevron-down", !open);
+      }
+    </script>
+  </body>
+</html>
